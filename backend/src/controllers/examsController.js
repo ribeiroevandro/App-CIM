@@ -9,16 +9,16 @@ module.exports = {
   },
   //cria o exams
   async create(Request, Response){
-    const { nameEx, resultEx, dateEx, doctor_id} = Request.body;
+    const { nameEx, resultEx, dateEx, patient_id} = Request.body;
     const doctor_id = Request.headers.authorization;
 
     const [ id ] = await connection('exams').insert({
       nameEx, 
       resultEx, 
       dateEx, 
-      doctor_id,
+      patient_id,
     })
 
-    return Response.json({ id, dateEx, nameEx, resultEx, doctor_id })
+    return Response.json({ id, dateEx, nameEx, resultEx, patient_id })
   }
 };
