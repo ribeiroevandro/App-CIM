@@ -21,7 +21,7 @@ module.exports = {
 
     return Response.json({ id, user })
   },
-  //deleta o doutor
+  //deleta a clinica
   async delete(Request, Response){
     const { id } = Request.params;
     

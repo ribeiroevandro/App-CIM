@@ -25,7 +25,7 @@ routes.delete('/doctor/:id', doctorController.delete);
 routes.delete('/clinic/:id', clinicController.delete);
 routes.delete('/patient/:id', patientController.delete);
 routes.delete('/prenatal/:id', prenatalController.delete);
-//routes.delete('/exams/:id', examsController.delete);
+routes.delete('/exams/:id', examsController.delete);
 
 
 module.exports = routes;

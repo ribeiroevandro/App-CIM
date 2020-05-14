@@ -7,6 +7,8 @@ exports.up = function(knex) {
    
    table.string('patient_id').notNullable();
    table.foreign('patient_id').references('id').inTable('patient');
+   table.string('doctor_id').notNullable();
+   table.foreign('doctor_id').references('id').inTable('doctor');
  });
 };
 

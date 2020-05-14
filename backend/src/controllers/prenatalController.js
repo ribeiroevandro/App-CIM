@@ -12,7 +12,6 @@ module.exports = {
   async create(Request, Response){
     const { dateP, ig, au, pa, peso, bcf, apres, edema, mf, observacao, patient_id } = Request.body;
     const doctor_id = Request.headers.authorization;
-    console.log("aqui");
     const [ id ] = await connection('prenatal').insert({
         dateP,
         ig,
@@ -25,9 +24,10 @@ module.exports = {
         mf,
         observacao,
         patient_id,
+        doctor_id
     })
     
-    return Response.json({ id, dateP, ig, au, pa, peso, bcf, apres, edema, mf, observacao, patient_id });
+    return Response.json({ id, dateP, ig, au, pa, peso, bcf, apres, edema, mf, observacao, patient_id, doctor_id });
   },
   //deleta o prenatal
   async delete(Request, Response){
@@ -39,7 +39,7 @@ module.exports = {
       .select('doctor_id')
       .first();
       
-      if (patient.doctor_id !== doctor_id){
+      if (prenatal.doctor_id !== doctor_id){
         return Response.status(401).json({ error: 'Operation not permitted.'});
       }
       
