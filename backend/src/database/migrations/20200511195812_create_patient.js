@@ -1,6 +1,6 @@
 exports.up = function(knex) {
   return knex.schema.createTable('patient', function (table){
-   table.increments('id');
+   table.string('id').primary();
    table.string('name').notNullable();
    table.string('user').notNullable();
    table.string('userIdVisitor').notNullable();

@@ -13,9 +13,11 @@ module.exports = {
     const { name, user, pregnance, abortion, birthType, dateDUM, dataDPP, } = Request.body;
     const doctor_id = Request.headers.authorization;
 
+    const id = crypto.randomBytes(4).toString('HEX');
     const userIdVisitor = crypto.randomBytes(4).toString('HEX');
-
-    const [ id ] = await connection('patient').insert({
+    
+    await connection('patient').insert({
+        id,
         userIdVisitor,
         name,
         user,
@@ -28,5 +30,23 @@ module.exports = {
     })
 
     return Response.json({ id, userIdVisitor, name, user, pregnance, abortion, birthType, dateDUM, dataDPP, doctor_id })
-  }
+  },
+    //deleta o patient
+    async delete(Request, Response){
+      const { id } = Request.params;
+      const doctor_id = Request.headers.authorization;
+  
+      const patient = await connection('patient')
+        .where('id', id)
+        .select('doctor_id')
+        .first();
+        
+        if (patient.doctor_id !== doctor_id){
+          return Response.status(401).json({ error: 'Operation not permitted.'});
+        }
+        
+        await connection('patient').where('id', id).delete();
+  
+        return Response.status(204).send();
+    }
 };

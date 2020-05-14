@@ -35,10 +35,11 @@ module.exports = {
       .first();
       
       if (doctor.clinic_id !== clinic_id){
-        return Response.status(401);
+        return Response.status(401).json({ error: 'Operation not permitted.'});
       }
       
-      
-      
+      await connection('doctor').where('id', id).delete();
+
+      return Response.status(204).send();
   }
 };

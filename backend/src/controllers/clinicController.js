@@ -21,5 +21,12 @@ module.exports = {
 
     return Response.json({ id, user })
   },
+  //deleta o doutor
+  async delete(Request, Response){
+    const { id } = Request.params;
+    
+      await connection('clinic').where('id', id).delete();
 
+      return Response.status(204).send();
+  }
 };
