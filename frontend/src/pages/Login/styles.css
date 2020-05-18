@@ -1,6 +1,18 @@
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  background-image: url("../../assets/fundo.png");
-  background-color: #cccccc;
+  background: rgb(158,175,227);
+  background: -moz-linear-gradient(top, rgb(158,175,227) 0%, rgb(158,175,227) 27%, rgb(124,124,181) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(158,175,227)), color-stop(27%, rgb(158,175,227)), color-stop(100%, rgb(124,124,181)));
+  background: -webkit-linear-gradient(top, rgb(158,175,227) 0%, rgb(158,175,227) 27%, rgb(124,124,181) 100%);
+  background: -o-linear-gradient(top, rgb(158,175,227) 0%, rgb(158,175,227) 27%, rgb(124,124,181) 100%);
+  background: -ms-linear-gradient(top, rgb(158,175,227) 0%, rgb(158,175,227) 27%, rgb(124,124,181) 100%);
+  background: linear-gradient(to bottom, rgb(158,175,227) 0%, rgb(158,175,227) 27%, rgb(124,124,181) 100%);
+
+  
  }
  h1, h2, h3, p {
    color: white;
