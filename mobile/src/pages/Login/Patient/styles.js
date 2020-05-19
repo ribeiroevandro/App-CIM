@@ -45,27 +45,29 @@ export default StyleSheet.create({
         paddingLeft: 10,
     },
 
-    checkboxRow: {
-        marginTop: 10,
+    row: {
+        width: 300,
         flexDirection: 'row',
-        alignItems: 'center',
+        marginTop: 10,
+    },
+
+    checkboxCol: {
+        flex: 1,
+        flexDirection: 'row',
+    },
+
+    linkCol: {
+        flex: 1,
+        alignItems: 'flex-end',
     },
 
     checkbox: {
-        left: -22,
-        tintColor: '#000'
+        alignSelf: 'center',
     },
 
     checkboxText: {
-        right: 20,
-    },
-
-    checkboxLink: {
-        left: 15,
-    },
-
-    codLink: {
-        left: 80,
+        alignSelf: 'center',
+        
     },
 
     buttonContainer: {
@@ -89,45 +91,5 @@ export default StyleSheet.create({
     registerLink: {
         marginTop: 10,
     }
-
-
-    // newContainer: {
-    //     flex: 1,
-    //     paddingTop: Constants.statusBarHeight + 15,
-    //     backgroundColor: '#9999cc',
-    // },
-
-    // container: {
-        
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    // },
-
-
-    // input: {
-    //     marginTop: 15,
-    //     flexDirection: 'row',
-    //     backgroundColor: '#fff',
-    // },
-
-    // inputIcon: {
-    //     padding: 10,
-    //     backgroundColor: '#000',
-    // },
-
-    // inputText: {
-    //     paddingTop: 10,
-    //     paddingRight: 200,
-    //     paddingBottom: 10,
-    //     paddingLeft: 10,
-    //     backgroundColor: '#fff',
-    // },
-
-    // header: {
-    //     fontWeight: 'bold',
-    //     fontSize: 48,
-    //     color: '#fff',
-    //     paddingBottom: 15,
-    // }
 
 });

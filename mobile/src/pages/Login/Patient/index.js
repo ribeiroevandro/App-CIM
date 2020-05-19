@@ -78,25 +78,32 @@ export default function LoginPatient() {
                 
                 </View>
 
-                <View style={Styles.checkboxRow}>
-                    <CheckBox 
-                        disabled={false}
-                        value={isSelected}
-                        onValueChange={() => isSelected ? setSelection(false) : setSelection(true)} 
-                        style={Styles.checkbox} />
-                    <Text style={Styles.checkboxText}>Lembrar de mim</Text>
-                    <TouchableOpacity style={Styles.checkboxLink}>
-                        <Text style={Styles.checkboxLinkText}>
-                            Esqueceu sua senha?
-                        </Text>
-                    </TouchableOpacity>
-                </View>
+                <View style={Styles.row}>
+                    
+                    <View style={Styles.checkboxCol}>
+                        <CheckBox 
+                            disabled={false}
+                            value={isSelected}
+                            onValueChange={() => isSelected ? setSelection(false) : setSelection(true)} 
+                            style={Styles.checkbox} />
+                        <Text style={Styles.checkboxText}>Lembrar de mim</Text>
+                    </View>
 
-                <TouchableOpacity style={Styles.codLink}>
-                    <Text style={Styles.codLinkText}>
-                        Esqueceu seu código?
-                    </Text>
-                </TouchableOpacity>
+                    <View style={Styles.linkCol}>
+                        <TouchableOpacity style={Styles.passLink}>
+                                <Text style={Styles.passLinkText}>
+                                    Esqueceu sua senha?
+                                </Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={Styles.codLink}>
+                            <Text style={Styles.codLinkText}>
+                                Esqueceu seu código?
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                
+                </View>
 
                 <View style={Styles.buttonContainer}>
                     <TouchableOpacity style={Styles.button} onPress={logIn}>
