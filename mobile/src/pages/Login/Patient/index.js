@@ -1,14 +1,28 @@
-import React from 'react';
-import { View, Text, Image, TextInput, CheckBox, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import CheckBox from '@react-native-community/checkbox';
 
 import { Feather } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient';
 import Styles from './styles';
 import logoImg from '../../../assets/logo.png';
+import { useNavigation } from '@react-navigation/native';
 
 export default function LoginPatient() {
+    
+    const [isSelected, setSelection] = useState(false);
+    const navigation = useNavigation();
+
+    function navigateBack() {
+        navigation.goBack();
+    }
+
+    function logIn() {
+        navigation.navigate('Dash');
+    }
+
     return(
-        <View style={Styles.newContainer}>
+        <View style={Styles.container}>
             
             <LinearGradient 
             colors={['transparent','#666699']} 
@@ -21,12 +35,12 @@ export default function LoginPatient() {
             </LinearGradient>
 
             <View style={Styles.back}>
-                <TouchableOpacity style={Styles.backLink}>
+                <TouchableOpacity style={Styles.backLink} onPress={navigateBack}>
                     <Feather  name="chevron-left" size={64} color="#fff" />
                 </TouchableOpacity>
             </View>
                         
-            <View style={Styles.container}>
+            <View style={Styles.form}>
 
                 <Text style={Styles.header}>
                     Bem vindo
@@ -65,7 +79,11 @@ export default function LoginPatient() {
                 </View>
 
                 <View style={Styles.checkboxRow}>
-                    <CheckBox style={Styles.checkbox} />
+                    <CheckBox 
+                        disabled={false}
+                        value={isSelected}
+                        onValueChange={() => isSelected ? setSelection(false) : setSelection(true)} 
+                        style={Styles.checkbox} />
                     <Text style={Styles.checkboxText}>Lembrar de mim</Text>
                     <TouchableOpacity style={Styles.checkboxLink}>
                         <Text style={Styles.checkboxLinkText}>
@@ -81,14 +99,14 @@ export default function LoginPatient() {
                 </TouchableOpacity>
 
                 <View style={Styles.buttonContainer}>
-                    <TouchableOpacity style={Styles.button}>
+                    <TouchableOpacity style={Styles.button} onPress={logIn}>
                         <Text style={Styles.buttonText}>
                             Entrar
                         </Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={Styles.passLink}>
-                        <Text style={Styles.passLinkText}>
+                    <TouchableOpacity style={Styles.registerLink}>
+                        <Text style={Styles.registerLinkText}>
                             Não possui conta?
                             Cadastre-se
                         </Text>
