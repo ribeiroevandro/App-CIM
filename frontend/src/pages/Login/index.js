@@ -1,24 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './styles.css'; 
 
-import appImg from '../../assets/logo.png';
+import appImg from '../../assets/splash1.png';
 
 export default function Login(){
   return(
     <div className="login-container">
-      <section className="from">
-        <img src={appImg} alt="CIM" />
+      <section className="form">
+        
         <form>
-          <h1>Faça seu Login</h1>
-
-          <input placeholder="Seu ID" />
-          <button type="submit">Entrar</button>
-
-          <a href="/register">
-            Não possui conta?<br/>
-            Cadastre-se
-          </a>
+        <Link className="back-link" to="/admin">
+          <img src={appImg} alt="CIM" />
+        </Link>
+        <Link className="back-link" to="/doctor">
+            <button className="button" type="text" href="/doctor">Administrador</button>          
+          </Link>
         </form>
       </section>
     </div>
