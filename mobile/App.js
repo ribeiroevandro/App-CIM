@@ -1,8 +1,8 @@
 import React from 'react';
-import Stack from './src/nav/stack'
+import Routes from './src/routes'
 
 export default function App() {
   return (
-    <Stack />
+    <Routes />
   );
 }

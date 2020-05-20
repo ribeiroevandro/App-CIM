@@ -11,9 +11,6 @@ export default function Login() {
     
     const navigation = useNavigation();
 
-    function navigateToDoctor() {
-        navigation.navigate('LoginDoctor');
-    }
     function navigateToPatient() {
         navigation.navigate('LoginPatient');
     }
@@ -35,9 +32,7 @@ export default function Login() {
                 height: 800}}>
             </LinearGradient>
 
-            <TouchableWithoutFeedback onPress={navigateToDoctor}>
-                <Image style={{marginBottom: 100}} source={logoImg} />
-            </TouchableWithoutFeedback>
+            <Image style={{marginBottom: 100}} source={logoImg} />
             
             <TouchableOpacity onPress={navigateToPatient}>
                 <View style={Styles.button}>
