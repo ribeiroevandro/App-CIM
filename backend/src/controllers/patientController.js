@@ -10,7 +10,7 @@ module.exports = {
   },
   //cria o paciente
   async create(Request, Response){
-    const { name, user, pregnance, abortion, birthType, dateDUM, dataDPP, } = Request.body;
+    const { name, user, pregnance, abortion, linkVideo, birthType, dateDUM, dataDPP, } = Request.body;
     const doctor_id = Request.headers.authorization;
 
     const id = crypto.randomBytes(4).toString('HEX');
@@ -19,6 +19,7 @@ module.exports = {
     await connection('patient').insert({
         id,
         userIdVisitor,
+        linkVideo,
         name,
         user,
         pregnance,
@@ -29,7 +30,7 @@ module.exports = {
         doctor_id,
     })
 
-    return Response.json({ id, userIdVisitor, name, user, pregnance, abortion, birthType, dateDUM, dataDPP, doctor_id })
+    return Response.json({ id, userIdVisitor, linkVideo, name, user, pregnance, abortion, birthType, dateDUM, dataDPP, doctor_id })
   },
     //deleta o patient
     async delete(Request, Response){

@@ -4,6 +4,7 @@ exports.up = function(knex) {
    table.string('name').notNullable();
    table.string('user').notNullable();
    table.string('userIdVisitor').notNullable();
+   table.string('linkVideo').nullable();
    table.int('pregnance', 2).notNullable();
    table.int('abortion', 2).notNullable();
    table.string('birthType').notNullable();
