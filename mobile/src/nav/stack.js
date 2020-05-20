@@ -1,15 +1,15 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Login from './pages/Login';
-import LoginDoctor from './pages/Login/Doctor';
-import LoginPatient from './pages/Login/Patient';
-import LoginVisitor from './pages/Login/Visitor';
-import Dash from './pages/Dash';
+import Login from '../pages/Login';
+import LoginDoctor from '../pages/Login/Doctor';
+import LoginPatient from '../pages/Login/Patient';
+import LoginVisitor from '../pages/Login/Visitor';
+import Dash from '../pages/Dash';
 
 const AppStack = createStackNavigator();
 
-export default function Routes() {
+export default function Stack() {
     return (
         <NavigationContainer>
             <AppStack.Navigator screenOptions={{ headerShown: false }}>
