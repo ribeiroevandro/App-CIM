@@ -7,6 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Styles from './styles';
 import logoImg from '../../../assets/logo.png';
 import { useNavigation } from '@react-navigation/native';
+import Dash from '../../Dash';
 
 export default function LoginPatient() {
     
@@ -18,7 +19,7 @@ export default function LoginPatient() {
     }
 
     function logIn() {
-        navigation.navigate('Dash');
+        navigation.navigate( Dash, {screen: 'Dash'});
     }
 
     return(

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Styles from './styles';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -8,11 +8,14 @@ import logoImg from '../../../assets/logo.png';
 
 export default function LoginVisitor() {
     
-    const [isSelected, setSelection] = useState(false);
     const navigation = useNavigation();
 
     function navigateBack() {
         navigation.goBack();
+    }
+
+    function Login() {
+        navigation.navigate('ScreenVisitor');
     }
     
     return(
@@ -51,7 +54,9 @@ export default function LoginVisitor() {
                 
                 </View>
 
-                <TouchableOpacity style={Styles.button}>
+                <TouchableOpacity 
+                style={Styles.button} 
+                onPress={Login}>
                     <Text style={Styles.buttonText}>
                         Entrar
                     </Text>

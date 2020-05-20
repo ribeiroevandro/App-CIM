@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "APP CFM",
-    "slug": "appcfm",
+    "name": "Cim Reproducao Humana",
+    "slug": "cimreproducaohumana",
     "platforms": [
       "ios",
       "android",
@@ -19,10 +19,14 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "*/"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dharmasaude.appcim"
+    },
+    "android": {
+      "package": "com.dharmasaude.appcim"
     }
   }
 }
