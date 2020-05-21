@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Styles from './styles';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native';
 import logoImg from '../../../assets/logo.png';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 
 export default function LoginVisitor() {
     
