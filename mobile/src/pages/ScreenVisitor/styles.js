@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 
@@ -26,7 +26,6 @@ export default StyleSheet.create({
         alignItems: 'flex-end',
         top: 10,
         right: 15,
-        justifyContent: 'center',
     },
 
     logoImage: {
@@ -43,6 +42,18 @@ export default StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
     },
+
+    header: {
+        fontWeight: 'bold',
+        fontSize: 32,
+        marginTop: 15,
+        textAlign: 'center',
+    },
+
+    message: {
+        marginTop: 15,
+        textAlign: 'center',
+    }
 
 
 });

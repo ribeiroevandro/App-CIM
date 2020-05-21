@@ -4,7 +4,15 @@ const doctorController = require('./controllers/doctorController');
 const patientController = require('./controllers/patientController');
 const prenatalController = require('./controllers/prenatalController');
 const examsController = require('./controllers/examsController');
+const profileController = require('./controllers/profileController');
+const listExamsController = require('./controllers/listExamsController');
+const listPrenatalController = require('./controllers/listPrenatalController');
 const routes = express.Router();
+
+//Metodo GET = Listar paciente, exame e prenatel expecifico
+routes.get('/profile', profileController.index);
+routes.get('/listExams', listExamsController.index);
+routes.get('/listPrenatal', listPrenatalController.index);
 
 //Metodo GET = Listar
 routes.get('/clinic', clinicController.index);
