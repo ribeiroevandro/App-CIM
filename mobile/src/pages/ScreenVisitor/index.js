@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Feather } from '@expo/vector-icons';
 import Styles from './styles';
+import logoImg from '../../assets/logo.png';
+import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import logoImg from '../../assets/logo.png';
-import YouTube from 'react-native-youtube';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 export default function ScreenVisitor() {
 

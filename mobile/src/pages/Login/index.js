@@ -1,11 +1,9 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
-
-import logoImg from '../../assets/logo.png';
 import Styles from './styles';
+import logoImg from '../../assets/logo.png';
 import { LinearGradient } from 'expo-linear-gradient';
-
 import { useNavigation } from '@react-navigation/native';
+import { View, Image, Text, TouchableOpacity} from 'react-native';
 
 export default function Login() {
     

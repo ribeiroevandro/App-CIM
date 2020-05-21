@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
-
-import { Feather } from '@expo/vector-icons'
-import { LinearGradient } from 'expo-linear-gradient';
 import Styles from './styles';
+import React, { useState } from 'react';
+import { Feather } from '@expo/vector-icons'
 import logoImg from '../../../assets/logo.png';
+import { LinearGradient } from 'expo-linear-gradient';
+import CheckBox from '@react-native-community/checkbox';
 import { useNavigation } from '@react-navigation/native';
+import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 
 export default function LoginPatient() {
     
@@ -18,7 +17,9 @@ export default function LoginPatient() {
     }
 
     function logIn() {
-        
+        navigation.navigate('Drawer', {
+            screen: 'Home'
+        });
     }
 
     return(
