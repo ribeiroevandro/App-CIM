@@ -2,7 +2,7 @@ import Constants from 'expo-constants';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-
+    
     container: {
         flex: 1,
         paddingTop: Constants.statusBarHeight + 15,
@@ -87,9 +87,5 @@ export default StyleSheet.create({
         color: '#fff',
         fontSize: 18
     },
-
-    registerLink: {
-        marginTop: 10,
-    }
 
 });

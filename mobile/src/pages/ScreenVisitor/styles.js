@@ -30,7 +30,7 @@ export default StyleSheet.create({
 
     logoImage: {
         width: 80,
-        height: 60,
+        height: 65,
     },
 
     content: {

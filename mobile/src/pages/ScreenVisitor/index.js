@@ -6,6 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 
+
 export default function ScreenVisitor() {
 
     const navigation = useNavigation();
@@ -44,9 +45,8 @@ export default function ScreenVisitor() {
                 </Text>
                 <Text style={Styles.message}>
                     Desculpe! Você não possui videos disponiveis no momento.
-                </Text>                    
+                </Text>
             </View>
-        
         </View>
     );
 
