@@ -1,12 +1,11 @@
 import React from 'react';
 import Styles from './styles';
 import { Feather } from '@expo/vector-icons'
-import logoImg from '../../../assets/logo.png';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
-export default function LoginVisitor() {
+export default function RecPass() {
     const DismissKeyboard = ({ children }) => (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             {children}
@@ -19,11 +18,7 @@ export default function LoginVisitor() {
         navigation.goBack();
     }
 
-    function Login() {
-        navigation.navigate('ScreenVisitor');
-    }
-    
-    return(
+  return(
         <DismissKeyboard>
             <View style={Styles.container}>
                 <LinearGradient 
@@ -40,12 +35,16 @@ export default function LoginVisitor() {
                         <Feather  name="chevron-left" size={64} color="#fff" />
                     </TouchableOpacity>
                 </View>
-                <View style={Styles.form}>
-                    <Text style={Styles.header}>
-                        Bem vindo
+                <View style={{ 
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flex: 0.8,
+                }}>
+                    
+                    <Text style={{color: '#fff', fontSize: 24, fontWeight: 'bold', marginTop: 40, textAlign: 'center', width: 300, marginBottom: 40, }}>
+                        Para recuperar sua Senha digite seu Usuário
                     </Text>
-                    <Image source={logoImg} />
-                    <View style={Styles.input}>
+                    <View style={{flexDirection: 'row', width: 300, marginBottom: 20,}}>
                         <Feather style={Styles.inputIcon} name="user" size={32} color="#fff" />
                         <TextInput 
                         style={Styles.inputText}
@@ -53,9 +52,9 @@ export default function LoginVisitor() {
                     </View>
                     <TouchableOpacity 
                     style={Styles.button} 
-                    onPress={Login}>
+                    onPress={() => {}}>
                         <Text style={Styles.buttonText}>
-                            Entrar
+                            Recuperar
                         </Text>
                     </TouchableOpacity>
                 </View>

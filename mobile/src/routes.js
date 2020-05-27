@@ -56,7 +56,7 @@ export default function Stack() {
                 <AppStack.Screen name="LoginVisitor" component={LoginVisitor} />
                 <AppStack.Screen name="ScreenVisitor" component={ScreenVisitor} />
                 <AppStack.Screen name="RecPass" component={RecPass} />
-                <AppStack.Screen name="RecUSer" component={RecUser} />
+                <AppStack.Screen name="RecUser" component={RecUser} />
                 <AppStack.Screen name="Drawer" component={Drawer} />
             </AppStack.Navigator>
         </NavigationContainer>
