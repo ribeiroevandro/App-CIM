@@ -1,16 +1,22 @@
 import React from 'react';
 import Dash from './pages/Dash';
 import Login from './pages/Login';
+import Exams from './pages/Exams';
+import PreNatal from './pages/PreNatal';
+import Video from './pages/Video';
 import { Feather } from '@expo/vector-icons';
+import {  } from '@expo/vector-icons/'
 import { CustomDrawerContent } from './drawer';
 import LoginPatient from './pages/Login/Patient';
-import RecPass from './pages/Login/Patient/recPass.js';
-import RecUser from './pages/Login/Patient/recUser.js';
 import LoginVisitor from './pages/Login/Visitor';
 import ScreenVisitor from './pages/ScreenVisitor';
+import RecPass from './pages/Login/Patient/recPass.js';
+import RecUser from './pages/Login/Patient/recUser.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import preNatalIcon from './assets/pregnant.png';
+import { Image } from 'react-native';
 
 const AppDrawer = createDrawerNavigator();
 
@@ -33,6 +39,31 @@ export function Drawer() {
                 drawerIcon: () => <Feather name="home" size={30} color="#663399" /> 
                 }} 
             />
+            
+            <AppDrawer.Screen 
+            name="Exames" 
+            component={Exams} 
+            options={{ 
+                drawerIcon: () => <Feather name="clipboard" size={30} color="#663399" /> 
+                }}
+            />
+            
+            <AppDrawer.Screen 
+            name="Pré-Natal" 
+            component={PreNatal} 
+            options={{ 
+                drawerIcon: () => <Image source={preNatalIcon} fadeDuration={0} style={{width: 30, height: 30}} /> 
+                }}
+            />
+                        
+            <AppDrawer.Screen 
+            name="Vídeo" 
+            component={Video} 
+            options={{ 
+                drawerIcon: () => <Feather name="youtube" size={30} color="#663399" /> 
+                }}
+            />
+            
             <AppDrawer.Screen 
             name="Sair" 
             component={Login} 
