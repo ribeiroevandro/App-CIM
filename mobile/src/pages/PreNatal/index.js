@@ -71,9 +71,7 @@ export default function PreNatal() {
                             <Text style={Styles.rowDataHeaderItem}>
                                 MF
                             </Text>
-                            <Text style={[Styles.rowDataHeaderItem, {borderRightWidth: 0}]}>
-                                Obs.
-                            </Text>
+                            
                         </View>
                             <FlatList 
                             data={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]}
@@ -108,9 +106,7 @@ export default function PreNatal() {
                                 <Text style={Styles.rowDataContainerItem}>
                                     NA
                                 </Text>
-                                <Text style={[Styles.rowDataContainerItem, {borderRightWidth: 0}]}>
-                                    NA
-                                </Text>
+                                
                             </View>
                             )}
                             />
