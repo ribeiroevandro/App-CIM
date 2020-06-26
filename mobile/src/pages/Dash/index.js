@@ -6,13 +6,16 @@ import email from '../../assets/gmail.png'
 import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, Image, ScrollView, Clipboard, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, Clipboard, Alert, Linking } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
+import * as MailComposer from 'expo-mail-composer';
 
 export default function Dash() {
 
     const navigation = useNavigation();
     const [isSelected, setSelection] = useState(false);
+    const message = 'Teste teste';
+    const text = '${message}';
 
     const idVisitor = 'asasasasas';
 
@@ -20,10 +23,26 @@ export default function Dash() {
       navigation.toggleDrawer();
     }
 
-    async function copyIdVisitor () {
+    async function copyIdVisitor() {
         Clipboard.setString(idVisitor);
         Alert.alert('Sucesso','ID do visitante copiado!');
       };
+
+    function sendMail () {
+        MailComposer.composeAsync({
+            subject: 'Teste',
+            recipients: ['jeancontrigiani@gmail.com'],
+            body: message,
+        })
+    }
+    
+    function sendWhatsJones () {
+        Linking.openURL('whatsapp://send?phone=5544999208446&text=' + message);
+    }
+    
+    function sendWhatsMarcelo () {
+        Linking.openURL('whatsapp://send?phone=5544999617149&text=' + message);
+    }
 
     return (
         <View style={Styles.container}>
@@ -126,15 +145,15 @@ export default function Dash() {
                         </Text>
                     </View>
                     <View style={Styles.contactButtonRow}>
-                        <TouchableOpacity style={Styles.contactButton} onPress={()=>{}}>
+                        <TouchableOpacity style={Styles.contactButton} onPress={sendWhatsJones}>
                             <Image style={{margin: 10, height: 58, width: 58}} source={whats} />
                             <Text style={{textAlign: 'center',}}>Dr. Jones M.</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={Styles.contactButton} onPress={()=>{}}>
+                        <TouchableOpacity style={Styles.contactButton} onPress={sendWhatsMarcelo}>
                             <Image style={{margin: 10, marginHorizontal: 25, height: 58, width: 58}} source={whats} />
                             <Text style={{textAlign: 'center',}}>Dr. Marcelo M.</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={Styles.contactButton} onPress={()=>{}}>
+                        <TouchableOpacity style={Styles.contactButton} onPress={sendMail}>
                             <Image style={{margin: 10, height: 58, width: 58}} source={email} />
                             <Text style={{textAlign: 'center',}}>E-mail Clínica</Text>
                         </TouchableOpacity>
