@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Styles from './styles';
 import logoImg from '../../assets/logo.png';
 import whats from '../../assets/whatsapp.png'
@@ -6,20 +6,29 @@ import email from '../../assets/gmail.png'
 import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, Clipboard, Alert } from 'react-native';
+import CheckBox from '@react-native-community/checkbox';
 
 export default function Dash() {
 
     const navigation = useNavigation();
+    const [isSelected, setSelection] = useState(false);
+
+    const idVisitor = 'asasasasas';
 
     function menu() {
       navigation.toggleDrawer();
     }
 
+    async function copyIdVisitor () {
+        Clipboard.setString(idVisitor);
+        Alert.alert('Sucesso','ID do visitante copiado!');
+      };
+
     return (
         <View style={Styles.container}>
             <LinearGradient 
-            colors={['transparent','#666699']} 
+            colors={['transparent','#0163b6']} 
             style={{
                 position: 'absolute',
                 left: 0,
@@ -27,29 +36,39 @@ export default function Dash() {
                 bottom: 0,
                 height: 800}}>
             </LinearGradient>
-
-            <View style={Styles.row}>
-                <View style={Styles.back}>
-                    <TouchableOpacity style={Styles.backLink} onPress={menu}>
-                        <Feather  name="menu" size={48} color="#fff" />
-                    </TouchableOpacity>
+            <ScrollView style={Styles.scroll}>
+                <View style={Styles.row}>
+                    <View style={Styles.back}>
+                        <TouchableOpacity style={Styles.backLink} onPress={menu}>
+                            <Feather  name="menu" size={48} color="#fff" />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={Styles.logo}>
+                        <Image style={Styles.logoImage} source={logoImg} />
+                    </View>
                 </View>
-                <View style={Styles.logo}>
-                    <Image style={Styles.logoImage} source={logoImg} />
-                </View>
-            </View>
-            <View style={Styles.content}>
-                <Text style={Styles.header}>
-                    Dados do Paciente
-                </Text>
-                <View style={Styles.patientContainer}>
+                <View style={Styles.content}>
+                    <Text style={Styles.header}>
+                        Dados do Paciente
+                    </Text>
+                    <View style={Styles.patientContainer}>
                         <View style={Styles.patientVisitor}>
                             <Text style={Styles.patientVisitorHeader}>
                                 ID Visitante
                             </Text>
-                            <Text style={Styles.patientVisitorValue}>
-                                asasasasas
-                            </Text>
+                            <View style={{backgroundColor: '#fff', borderRadius: 15, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                                <Text style={Styles.patientVisitorValue}>
+                                    asasasasas
+                                </Text>
+                                <TouchableOpacity 
+                                style={{backgroundColor: '#0163b6', borderRadius: 15, padding: 8}}
+                                onPress={()=>{copyIdVisitor()}}
+                                >
+                                    <Text style={{color: '#fff'}}>
+                                        Copiar
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
                         <View style={Styles.patientName}>
                             <Text style={Styles.patientNameHeader}>
@@ -59,71 +78,69 @@ export default function Dash() {
                                 Miriam Crisitna B. Rodrigues
                             </Text>
                         </View>
-                        <View style={Styles.patientRow}>
-                            <View style={Styles.patientLastGestation}>
-                                <Text style={Styles.patientLastGestationHeader}>
-                                    Gestação Anterior
-                                </Text>
-                                <Text style={Styles.patientLastGestationValue}>
-                                    0
-                                </Text>
+                        <View style={[Styles.row, {justifyContent: 'space-between', marginTop: 10, alignItems: 'center',}]}>
+                            <View style={Styles.row}>
+                                <Text>0</Text>
+                                <Text style={{fontWeight: 'bold', marginLeft: 5}}>G</Text>
                             </View>
-                            <View style={Styles.patientLastAbortion}>
-                                <Text style={Styles.patientLastAbortionHeader}>
-                                    Abortos Anteriores
-                                </Text>
-                                <Text style={Styles.patientLastAbortionValue}>
-                                    0
-                                </Text>
+                            <View style={Styles.row}>
+                                <Text>0</Text>
+                                <Text style={{fontWeight: 'bold', marginLeft: 5}}>P</Text>
                             </View>
-                        </View>
-                        <View style={Styles.patientBirthType}>
-                            <Text style={Styles.patientBirthTypeHeader}>
-                                Tipo de parto
-                            </Text>
-                            <Text style={Styles.patientBirthTypeValue}>
-                                Cesária
-                            </Text>
-                        </View>
-                        <View style={Styles.patientRow}>
-                            <View style={Styles.patientLastMenstruation}>
-                                <Text style={Styles.patientLastMenstruationHeader}>
-                                    Data da Ultima{'\n'}
-                                    Menstruação
-                                </Text>
-                                <Text style={Styles.patientLastMenstruationValue}>
-                                    01/01/2020
-                                </Text>
+                            <View style={[Styles.row, {alignItems: 'center'}]}>
+                                <Text style={{fontWeight: 'bold'}}>(Cesária</Text>
+                                <CheckBox 
+                                    disabled={false}
+                                    value={isSelected}
+                                    onValueChange={() => isSelected ? setSelection(false) : setSelection(true)} 
+                                    style={Styles.checkbox} />
+                                <Text style={{fontWeight: 'bold'}}>Normal</Text>
+                                <CheckBox 
+                                    disabled={false}
+                                    value={isSelected}
+                                    onValueChange={() => isSelected ? setSelection(false) : setSelection(true)} 
+                                    style={Styles.checkbox} />
+                                <Text style={{fontWeight: 'bold'}}>)</Text>
                             </View>
-                            <View style={Styles.patientBirthProvided}>
-                                <Text style={Styles.patientBirthProvidedHeader}>
-                                    Data Prevista{'\n'}do Parto
-                                </Text>
-                                <Text style={Styles.patientBirthProvidedValue}>
-                                    08/09/2020
-                                </Text>
+                            <View style={Styles.row}>
+                                <Text>0</Text>
+                                <Text style={{fontWeight: 'bold', marginLeft: 5}}>P</Text>
                             </View>
                         </View>
-                </View>                    
-            </View>
-            <View style={Styles.contact}>
-                <View style={Styles.contactHeader}>
-                    <Text style={Styles.contactHeaderText}>
-                        Para mais informações entre em contato
-                    </Text>
+                        <View style={[Styles.row, {justifyContent: 'space-between', marginTop: 10}]}>
+                            <Text style={{fontWeight: 'bold'}}>DUM</Text>
+                            <Text>25/06/2020</Text>
+                            <Text style={{fontWeight: 'bold'}}>DPP</Text>
+                            <Text>25/12/2020</Text>
+                        </View>
+                        <View>
+                            <Text style={{fontWeight: 'bold', marginTop: 10}}>Observação</Text>
+                            <Text>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Text>
+                        </View>
+                    </View>                    
                 </View>
-
-                <View style={Styles.contactButton}>
-                    <TouchableOpacity style={{marginRight: 20}} onPress={()=>{}}>
-                        <Image style={{margin: 10, height: 58, width: 58}} source={whats} />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{}}>
-                        <Image style={{margin: 10, height: 58, width: 58}} source={email} />
-                    </TouchableOpacity>
+                <View style={Styles.contact}>
+                    <View style={Styles.contactHeader}>
+                        <Text style={Styles.contactHeaderText}>
+                            Para mais informações entre em contato
+                        </Text>
+                    </View>
+                    <View style={Styles.contactButtonRow}>
+                        <TouchableOpacity style={Styles.contactButton} onPress={()=>{}}>
+                            <Image style={{margin: 10, height: 58, width: 58}} source={whats} />
+                            <Text style={{textAlign: 'center',}}>Dr. Jones M.</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={Styles.contactButton} onPress={()=>{}}>
+                            <Image style={{margin: 10, marginHorizontal: 25, height: 58, width: 58}} source={whats} />
+                            <Text style={{textAlign: 'center',}}>Dr. Marcelo M.</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={Styles.contactButton} onPress={()=>{}}>
+                            <Image style={{margin: 10, height: 58, width: 58}} source={email} />
+                            <Text style={{textAlign: 'center',}}>E-mail Clínica</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
-        
+            </ScrollView>
         </View>
     );
-
 }

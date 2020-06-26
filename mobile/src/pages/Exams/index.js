@@ -18,7 +18,7 @@ export default function Exams() {
     return (
         <View style={Styles.container}>
             <LinearGradient 
-            colors={['transparent','#666699']} 
+            colors={['transparent','#0163b6']} 
             style={{
                 position: 'absolute',
                 left: 0,
@@ -42,38 +42,86 @@ export default function Exams() {
                     Exames
                 </Text>
                 <View style={Styles.patientContainer}>
-                    <View style={Styles.rowDataHeader}>
-                        <Text style={Styles.rowDataHeaderExam}>
-                            Exame
-                        </Text>
-                        <Text style={Styles.rowDataHeaderDate}>
-                            Data
-                        </Text>
-                        <Text style={Styles.rowDataHeaderResult}>
-                            Resultado
-                        </Text>
+                    <View style={Styles.rowDataVertHeader}>
+                        <Text style={Styles.textVertHeader}>Exame</Text>
+                        <Text style={Styles.textVertHeader}>ABO-RH</Text>
+                        <Text style={Styles.textVertHeader}>Glicemia</Text>
+                        <Text style={Styles.textVertHeader}>Hb/Ht</Text>
+                        <Text style={Styles.textVertHeader}>VDRL</Text>
+                        <Text style={Styles.textVertHeader}>HIV</Text>
+                        <Text style={Styles.textVertHeader}>Hepatite B</Text>
+                        <Text style={Styles.textVertHeader}>Hepatite C</Text>
+                        <Text style={Styles.textVertHeader}>Toxoplasmose</Text>
+                        <Text style={Styles.textVertHeader}>Rubêola</Text>
+                        <Text style={Styles.textVertHeader}>Outros</Text>
                     </View>
-                    <FlatList 
-                        data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50 ]}
-                        keyExtractor={data => String(data)}
-                        showsVerticalScrollIndicator={false}
-                        style={Styles.rowData}
-                        renderItem={() => (
-                            <View style={Styles.rowDataContainer}>
-                                <Text style={Styles.rowDataContainerItem}>
-                                    ABO-RH
-                                </Text>
-                                <Text style={[Styles.rowDataContainerItem, {borderLeftWidth: 1, borderRightWidth: 1, paddingLeft: 15}]}>
-                                    21/05/2019
-                                </Text>
-                                <Text style={[Styles.rowDataContainerItem, {paddingLeft: 15}]}>
-                                    NA
-                                </Text>
-                            </View>
-                        )} 
-                    />
-                    <View style={{marginBottom: 20}}>
-
+                    <View style={Styles.rowDataContainer}>
+                        <View style={Styles.rowDataHorHeader}>
+                            <Text style={Styles.textHorHeader}>Data</Text>
+                            <Text style={Styles.textHorHeader}>Result.</Text>
+                            <Text style={Styles.textHorHeader}>Data</Text>
+                            <Text style={[Styles.textHorHeader, {borderRightWidth: 0}]}>Result.</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData, {borderRightWidth: 0}]}>NA</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData, {borderRightWidth: 0}]}>NA</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData, {borderRightWidth: 0}]}>NA</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData,{borderRightWidth: 0}]}>NA</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData, {borderRightWidth: 0}]}>NA</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData, {borderRightWidth: 0}]}>NA</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData, {borderRightWidth: 0}]}>NA</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData, {borderRightWidth: 0}]}>NA</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData, {borderRightWidth: 0}]}>NA</Text>
+                        </View>
+                        <View style={Styles.rowData}>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={Styles.textData}>NA</Text>
+                            <Text style={Styles.textData}>18/06/2020</Text>
+                            <Text style={[Styles.textData, {borderRightWidth: 0}]}>NA</Text>
+                        </View>
                     </View>
                 </View>
            </View>    

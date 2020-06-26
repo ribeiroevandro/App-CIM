@@ -6,7 +6,11 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Constants.statusBarHeight + 15,
-        backgroundColor: '#9999cc',
+        backgroundColor: '#54affd',
+        justifyContent: 'space-between',
+    },
+
+    scroll: {
     },
 
     row: {
@@ -34,7 +38,7 @@ export default StyleSheet.create({
     },
 
     content: {
-        flex: 1,
+        flex: 0.5,
         backgroundColor: '#fff',
         borderRadius: 30,
         marginTop: 30,
@@ -52,7 +56,7 @@ export default StyleSheet.create({
     },
 
     patientContainer: {
-        backgroundColor: '#bebeeb',
+        backgroundColor: '#54affd',
         flex: 1,
         borderRadius: 30,
         marginTop: 10,
@@ -85,6 +89,7 @@ export default StyleSheet.create({
     },
 
     patientName: {
+        marginTop: 10,
     },
 
     patientNameHeader: {
@@ -97,75 +102,8 @@ export default StyleSheet.create({
         marginLeft: 10,
     },
 
-    patientLastGestation: {
-    },
-    
-    patientLastGestationHeader: {
-        fontWeight: 'bold',
-        fontSize: 16,
-    },
-    
-    patientLastGestationValue: {
-        fontSize: 16,
-        marginLeft: 10,
-    },
-
-    patientLastAbortion: {
-    },
-
-    patientLastAbortionHeader: {
-        fontWeight: 'bold',
-        fontSize: 16,
-    },
-
-    patientLastAbortionValue: {
-        fontSize: 16,
-        marginLeft: 10,
-    },
-
-    patientBirthType: {
-    },
-
-    patientBirthTypeHeader: {
-        fontWeight: 'bold',
-        fontSize: 16,
-    },
-
-    patientBirthTypeValue: {
-        fontSize: 16,
-        marginLeft: 10,
-    },
-
-    patientLastMenstruation: {
-    },
-
-    patientLastMenstruationHeader: {
-        fontWeight: 'bold',
-        fontSize: 16,
-        textAlign: 'center',
-    },
-
-    patientLastMenstruationValue: {
-        fontSize: 16,
-        textAlign: 'center',
-    },
-    
-    patientBirthProvided: {
-    },
-
-    patientBirthProvidedHeader: {
-        fontWeight: 'bold',
-        fontSize: 16,
-        textAlign: 'center',
-    },
-
-    patientBirthProvidedValue: {
-        fontSize: 16,
-        textAlign: 'center',
-    },
-
     contact: {
-        flex: 0.3,
+        flex: 0.5,
         backgroundColor: '#fff',
         borderRadius: 30,
         marginTop: 10,
@@ -175,7 +113,7 @@ export default StyleSheet.create({
     },
 
     contactHeader: {
-        backgroundColor: '#60609e',
+        backgroundColor: '#0163b6',
         height: 50,
         borderRadius: 50,
         justifyContent: 'center',
@@ -187,9 +125,15 @@ export default StyleSheet.create({
         fontSize: 16,
     },
 
-    contactButton: {
+    contactButtonRow: {
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 15,
+    },
+
+    contactButton: {
     }
 
 });

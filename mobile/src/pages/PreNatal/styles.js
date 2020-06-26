@@ -6,7 +6,7 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Constants.statusBarHeight + 15,
-        backgroundColor: '#9999cc',
+        backgroundColor: '#54affd',
     },
 
     row: {
@@ -57,46 +57,44 @@ export default StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         flex: 1,
-        flexDirection: 'row',
     },
 
     rowDataHeader: {
-        justifyContent:'space-between',
-        backgroundColor: '#60609e',
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        backgroundColor: '#0163b6',
         borderRadius: 20,
-        flex: 0.3,
+        height: '8%',
     },
 
     rowDataHeaderItem: {
-        borderColor: '#fff',
-        borderBottomWidth: 1,
         flex: 1,
-        paddingLeft: 10,
-        paddingRight: 10,
-        textAlignVertical: 'center',
-        fontSize: 18,
         fontWeight: 'bold',
+        textAlign: 'center',
+        textAlignVertical: 'center',
         color: '#fff',
+        borderRightWidth: 1,
+        borderRightColor: '#fff',
     },
 
     rowData: {
-        flex: 0.7,
-        borderRadius: 10,
+        height: '50%',
     },
 
     rowDataContainer: {
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        borderRightWidth: 1,
-        width: 90,
-        borderRadius: 10,
     },
 
     rowDataContainerItem: {
-        textAlignVertical: 'center',
-        textAlign: 'center',
         flex: 1,
+        fontSize: 11,
+        textAlign: 'center',
+        textAlignVertical: 'center',
         borderBottomWidth: 1,
-        borderRadius: 10,
+        borderRightWidth: 1,
+        paddingTop: 5,
+        paddingBottom: 5,
     }
 
 });

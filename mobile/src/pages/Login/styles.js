@@ -7,7 +7,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: Constants.statusBarHeight + 20,
-        backgroundColor: '#9999cc',
+        backgroundColor: '#54affd',
     },
 
     button: {

@@ -5,7 +5,7 @@ import logoImg from '../../../assets/logo.png';
 import { LinearGradient } from 'expo-linear-gradient';
 import CheckBox from '@react-native-community/checkbox';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
 
 export default function LoginPatient() {
     
@@ -40,7 +40,7 @@ export default function LoginPatient() {
         <DismissKeyboard>
             <View style={Styles.container}>
                 <LinearGradient 
-                colors={['transparent','#666699']} 
+                colors={['transparent','#0163b6']} 
                 style={{
                     position: 'absolute',
                     left: 0,
@@ -48,66 +48,68 @@ export default function LoginPatient() {
                     bottom: 0,
                     height: 800}}>
                 </LinearGradient>
-                <View style={Styles.back}>
-                    <TouchableOpacity style={Styles.backLink} onPress={navigateBack}>
-                        <Feather  name="chevron-left" size={64} color="#fff" />
-                    </TouchableOpacity>
-                </View>
-                <View style={Styles.form}>
-                    <Text style={Styles.header}>
-                        Bem vindo
-                    </Text>
-                    <Image source={logoImg} />
-                    <View style={Styles.input}>
-                        <Feather style={Styles.inputIcon} name="user" size={32} color="#fff" />
-                            <TextInput 
-                            style={Styles.inputText}
-                            placeholder="Usuário" />
+                <ScrollView showsVerticalScrollIndicator={false} fadingEdgeLength={0}>
+                    <View style={Styles.back}>
+                        <TouchableOpacity style={Styles.backLink} onPress={navigateBack}>
+                            <Feather  name="chevron-left" size={64} color="#fff" />
+                        </TouchableOpacity>
                     </View>
-                    <View style={Styles.input}>
-                        <Feather style={Styles.inputIcon} name="info" size={32} color="#fff" />
-                            <TextInput 
-                            style={Styles.inputText}
-                            placeholder="Código" />
-                    </View>
-                    <View style={Styles.input}>
-                        <Feather style={Styles.inputIcon} name="lock" size={32} color="#fff" />
-                            <TextInput 
-                            style={Styles.inputText}
-                            placeholder="Senha" 
-                            secureTextEntry={true}
-                            />
-                    </View>
-                    <View style={Styles.row}>
-                        <View style={Styles.checkboxCol}>
-                            <CheckBox 
-                                disabled={false}
-                                value={isSelected}
-                                onValueChange={() => isSelected ? setSelection(false) : setSelection(true)} 
-                                style={Styles.checkbox} />
-                            <Text style={Styles.checkboxText}>Lembrar de mim</Text>
+                    <View style={Styles.form}>
+                        <Text style={Styles.header}>
+                            Bem vindo
+                        </Text>
+                        <Image source={logoImg} />
+                        <View style={Styles.input}>
+                            <Feather style={Styles.inputIcon} name="user" size={32} color="#fff" />
+                                <TextInput 
+                                style={Styles.inputText}
+                                placeholder="Usuário" />
                         </View>
-                        <View style={Styles.linkCol}>
-                            <TouchableOpacity style={Styles.passLink} onPress={navigateRecPass}>
-                                    <Text style={Styles.passLinkText}>
-                                        Esqueceu sua senha?
+                        <View style={Styles.input}>
+                            <Feather style={Styles.inputIcon} name="info" size={32} color="#fff" />
+                                <TextInput 
+                                style={Styles.inputText}
+                                placeholder="Código" />
+                        </View>
+                        <View style={Styles.input}>
+                            <Feather style={Styles.inputIcon} name="lock" size={32} color="#fff" />
+                                <TextInput 
+                                style={Styles.inputText}
+                                placeholder="Senha" 
+                                secureTextEntry={true}
+                                />
+                        </View>
+                        <View style={Styles.row}>
+                            <View style={Styles.checkboxCol}>
+                                <CheckBox 
+                                    disabled={false}
+                                    value={isSelected}
+                                    onValueChange={() => isSelected ? setSelection(false) : setSelection(true)} 
+                                    style={Styles.checkbox} />
+                                <Text style={Styles.checkboxText}>Lembrar de mim</Text>
+                            </View>
+                            <View style={Styles.linkCol}>
+                                <TouchableOpacity style={Styles.passLink} onPress={navigateRecPass}>
+                                        <Text style={Styles.passLinkText}>
+                                            Esqueceu sua senha?
+                                        </Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={Styles.codLink} onPress={navigateRecUser}>
+                                    <Text style={Styles.codLinkText}>
+                                        Esqueceu seu código?
                                     </Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={Styles.codLink} onPress={navigateRecUser}>
-                                <Text style={Styles.codLinkText}>
-                                    Esqueceu seu código?
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={Styles.buttonContainer}>
+                            <TouchableOpacity style={Styles.button} onPress={logIn}>
+                                <Text style={Styles.buttonText}>
+                                    Entrar
                                 </Text>
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={Styles.buttonContainer}>
-                        <TouchableOpacity style={Styles.button} onPress={logIn}>
-                            <Text style={Styles.buttonText}>
-                                Entrar
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                </ScrollView>
             </View>
         </DismissKeyboard>                    
     );

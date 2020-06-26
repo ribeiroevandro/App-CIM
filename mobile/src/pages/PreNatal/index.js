@@ -18,7 +18,7 @@ export default function PreNatal() {
     return (
         <View style={Styles.container}>
             <LinearGradient 
-            colors={['transparent','#666699']} 
+            colors={['transparent','#0163b6']} 
             style={{
                 position: 'absolute',
                 left: 0,
@@ -42,48 +42,47 @@ export default function PreNatal() {
                     Pré-Natal
                 </Text>
                 <View style={Styles.patientContainer}>
-                    <View style={Styles.rowDataHeader}>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            Data
-                        </Text>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            IG
-                        </Text>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            AU
-                        </Text>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            PA
-                        </Text>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            Peso
-                        </Text>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            BCF
-                        </Text>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            APRES
-                        </Text>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            EDEMA
-                        </Text>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            MF
-                        </Text>
-                        <Text style={Styles.rowDataHeaderItem}>
-                            Obs.
-                        </Text>
-                    </View>
-                    <FlatList 
-                        data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50 ]}
-                        keyExtractor={data => String(data)}
-                        showsVerticalScrollIndicator={false}
-                        style={Styles.rowData}
-                        horizontal={true}
-                        renderItem={() => (
+                    <ScrollView contentContainerStyle={{flexDirection: 'column', width: 700}} horizontal={true}>
+                        <View style={Styles.rowDataHeader}>
+                            <Text style={Styles.rowDataHeaderItem}>
+                                Data
+                            </Text>
+                            <Text style={Styles.rowDataHeaderItem}>
+                                IG
+                            </Text>
+                            <Text style={Styles.rowDataHeaderItem}>
+                                AU
+                            </Text>
+                            <Text style={Styles.rowDataHeaderItem}>
+                                PA
+                            </Text>
+                            <Text style={Styles.rowDataHeaderItem}>
+                                Peso
+                            </Text>
+                            <Text style={Styles.rowDataHeaderItem}>
+                                BCF
+                            </Text>
+                            <Text style={Styles.rowDataHeaderItem}>
+                                APRES
+                            </Text>
+                            <Text style={Styles.rowDataHeaderItem}>
+                                EDEMA
+                            </Text>
+                            <Text style={Styles.rowDataHeaderItem}>
+                                MF
+                            </Text>
+                            <Text style={[Styles.rowDataHeaderItem, {borderRightWidth: 0}]}>
+                                Obs.
+                            </Text>
+                        </View>
+                            <FlatList 
+                            data={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]}
+                            keyExtractor={data => String(data)}
+                            style={Styles.rowData} 
+                            renderItem={() => (                      
                             <View style={Styles.rowDataContainer}>
                                 <Text style={Styles.rowDataContainerItem}>
-                                    21/05/2019
+                                21/05/2019
                                 </Text>
                                 <Text style={Styles.rowDataContainerItem}>
                                     NA
@@ -109,15 +108,13 @@ export default function PreNatal() {
                                 <Text style={Styles.rowDataContainerItem}>
                                     NA
                                 </Text>
-                                <Text style={Styles.rowDataContainerItem}>
+                                <Text style={[Styles.rowDataContainerItem, {borderRightWidth: 0}]}>
                                     NA
                                 </Text>
                             </View>
-                        )} 
-                    />
-                    <View style={{marginBottom: 20}}>
-
-                    </View>
+                            )}
+                            />
+                    </ScrollView>
                 </View>
            </View>    
         </View>

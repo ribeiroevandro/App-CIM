@@ -27,7 +27,7 @@ export default function LoginVisitor() {
         <DismissKeyboard>
             <View style={Styles.container}>
                 <LinearGradient 
-                colors={['transparent','#666699']} 
+                colors={['transparent','#0163b6']} 
                 style={{
                     position: 'absolute',
                     left: 0,

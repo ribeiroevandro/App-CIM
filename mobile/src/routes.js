@@ -27,16 +27,16 @@ export function Drawer() {
         drawerContent={props => <CustomDrawerContent {...props} />}
         hideStatusBar={true}
         drawerContentOptions={{
-            activeTintColor: '#663399', 
-            inactiveTintColor: '#663399', 
-            activeBackgroundColor: '#ccccff', 
+            activeTintColor: '#0163b6', 
+            inactiveTintColor: '#54affd', 
+            activeBackgroundColor: '#54affd', 
             labelStyle: {fontSize: 16, fontWeight: 'bold',}}}
         >
             <AppDrawer.Screen 
             name="Home" 
             component={Dash} 
             options={{ 
-                drawerIcon: () => <Feather name="home" size={30} color="#663399" /> 
+                drawerIcon: () => <Feather name="home" size={30} color="#0163b6" /> 
                 }} 
             />
             
@@ -44,7 +44,7 @@ export function Drawer() {
             name="Exames" 
             component={Exams} 
             options={{ 
-                drawerIcon: () => <Feather name="clipboard" size={30} color="#663399" /> 
+                drawerIcon: () => <Feather name="clipboard" size={30} color="#0163b6" /> 
                 }}
             />
             
@@ -60,7 +60,7 @@ export function Drawer() {
             name="Vídeo" 
             component={Video} 
             options={{ 
-                drawerIcon: () => <Feather name="youtube" size={30} color="#663399" /> 
+                drawerIcon: () => <Feather name="youtube" size={30} color="#0163b6" /> 
                 }}
             />
             
@@ -68,7 +68,7 @@ export function Drawer() {
             name="Sair" 
             component={Login} 
             options={{ 
-                drawerIcon: () => <Feather name="log-out" size={30} color="#663399" /> 
+                drawerIcon: () => <Feather name="log-out" size={30} color="#0163b6" /> 
                 }}
             />
         </AppDrawer.Navigator>

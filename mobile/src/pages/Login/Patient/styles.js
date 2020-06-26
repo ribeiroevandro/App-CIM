@@ -6,7 +6,7 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Constants.statusBarHeight + 15,
-        backgroundColor: '#9999cc',
+        backgroundColor: '#54affd',
     },
 
     back: {
@@ -15,8 +15,10 @@ export default StyleSheet.create({
     },
 
     form: {
+        flex: 1,
         paddingTop: 10,
         alignItems: 'center',
+        paddingBottom: 20,
     },
 
     header: {

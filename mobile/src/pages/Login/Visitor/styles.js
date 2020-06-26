@@ -6,7 +6,7 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Constants.statusBarHeight + 15,
-        backgroundColor: '#9999cc',
+        backgroundColor: '#54affd',
     },
 
     back: {

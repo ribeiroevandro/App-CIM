@@ -6,7 +6,7 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Constants.statusBarHeight + 15,
-        backgroundColor: '#9999cc',
+        backgroundColor: '#54affd',
     },
 
     row: {
@@ -57,71 +57,59 @@ export default StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         flex: 1,
+        flexDirection: 'row',
     },
 
-    rowDataHeader: {
+    rowDataVertHeader: {
+        flex: 0.3,
+        justifyContent: 'space-between',
+        backgroundColor: '#0163b6',
+        borderRadius: 20,
+    },
+
+    textVertHeader: {
+        flex: 1,
+        fontSize: 12,
+        textAlignVertical: 'center',
+        paddingLeft: '10%',
+        borderBottomWidth: 1,
+        borderBottomColor: '#fff',
+        color: '#fff',
+        fontWeight: 'bold',
+    },
+
+    rowDataHorHeader: {
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        borderRadius: 30,
-        height: 60,
-        paddingLeft: 20,
-        paddingRight: 30,
-        alignItems: 'center',
-        backgroundColor: '#60609e',
-    },
-
-    rowDataHeaderExam: {
-        flex: 1,
-        height: 60,
-        textAlignVertical: 'center',
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-
-    rowDataHeaderDate: {
-        flex: 1,
-        borderLeftWidth: 1,
-        borderColor: '#fff',
-        paddingLeft: 15,
-        height: 60,
-        textAlignVertical: 'center',
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold',
     },
     
-    rowDataHeaderResult: {
+    textHorHeader: {
         flex: 1,
-        borderLeftWidth: 1,
-        borderColor: '#fff',
-        paddingLeft: 15,
-        height: 60,
+        fontSize: 12,
+        textAlign: 'center',
         textAlignVertical: 'center',
-        color: '#fff',
-        fontSize: 18,
         fontWeight: 'bold',
+        borderBottomWidth: 1,
+        borderRightWidth: 1,
+    },
+    
+    rowDataContainer: {
+        flex: 0.7,
     },
 
     rowData: {
-    },
-
-    rowDataContainer: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        borderBottomWidth: 1,
-        paddingLeft: 20,
-        paddingRight: 30,
-        height: 40,
-        borderRadius: 10,
-    },
-
-    rowDataContainerItem: {
         flex: 1,
-        textAlign: 'left',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+
+    textData: {
+        flex: 1,
+        fontSize: 10,
+        textAlign: 'center',
         textAlignVertical: 'center',
-        
-    }
-
-
+        borderBottomWidth: 1,
+        borderRightWidth: 1,
+    },
 });
