@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState} from 'react';
 import Styles from './styles';
 import { Feather } from '@expo/vector-icons'
 import logoImg from '../../../assets/logo.png';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation  } from '@react-navigation/native';
 import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+
+//import api from '../../services/api';
 
 export default function LoginVisitor() {
     const DismissKeyboard = ({ children }) => (
@@ -12,16 +14,40 @@ export default function LoginVisitor() {
             {children}
         </TouchableWithoutFeedback>
     );
+    const [IdVisitor, setIdVisitor] = useState('');
 
     const navigation = useNavigation();
+
+    function Login() {
+        navigation.navigate('ScreenVisitor');
+    }
+
+   function handleLogin(){
+
+    console.log({
+        
+    })
+    
+    localStorage.setItem('visitorId', IdVisitor);
+
+    //    try {
+     //       const response = await api.post('/sessionsVisit', {IdVisitor});
+            
+      //      localStorage.setItem('visitorId', IdVisitor);
+
+       //     return({Login});
+
+     //   } catch (err) {
+   //         alert('Falha no login, tente novamente.');
+    //    }
+
+    }
 
     function navigateBack() {
         navigation.goBack();
     }
 
-    function Login() {
-        navigation.navigate('ScreenVisitor');
-    }
+    
     
     return(
         <DismissKeyboard>
@@ -49,7 +75,10 @@ export default function LoginVisitor() {
                         <Feather style={Styles.inputIcon} name="user" size={32} color="#fff" />
                         <TextInput 
                         style={Styles.inputText}
-                        placeholder="Usuário" />
+                        placeholder="Usuário"
+                        //value={IdVisitor}   
+                        //onChange={e => setIdVisitor(e.target.value)}
+                         />
                     </View>
                     <TouchableOpacity 
                     style={Styles.button} 
