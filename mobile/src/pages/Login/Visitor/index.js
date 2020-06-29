@@ -4,9 +4,9 @@ import { Feather } from '@expo/vector-icons'
 import logoImg from '../../../assets/logo.png';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation  } from '@react-navigation/native';
-import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
 
-//import api from '../../services/api';
+import api from '../../../services/api';
 
 export default function LoginVisitor() {
     const DismissKeyboard = ({ children }) => (
@@ -22,24 +22,19 @@ export default function LoginVisitor() {
         navigation.navigate('ScreenVisitor');
     }
 
-   function handleLogin(){
+   async function handleLogin(){
 
-    console.log({
-        
-    })
-    
-    localStorage.setItem('visitorId', IdVisitor);
-
-    //    try {
-     //       const response = await api.post('/sessionsVisit', {IdVisitor});
+        try {
             
-      //      localStorage.setItem('visitorId', IdVisitor);
+            const response = await api.post('sessionsVisit', {IdVisitor});
+            alert("aqui");
+            //localStorage.setItem('IdVisitor', IdVisitor);
+            
+            //return navigation.navigate('ScreenVisitor');
 
-       //     return({Login});
-
-     //   } catch (err) {
-   //         alert('Falha no login, tente novamente.');
-    //    }
+        } catch (err) {
+            alert('Falha no login, tente novamente.');
+        }
 
     }
 
@@ -61,6 +56,7 @@ export default function LoginVisitor() {
                     bottom: 0,
                     height: 800}}>
                 </LinearGradient>
+                <ScrollView showsVerticalScrollIndicator={false} fadingEdgeLength={0}>
                 <View style={Styles.back}>
                     <TouchableOpacity style={Styles.backLink} onPress={navigateBack}>
                         <Feather  name="chevron-left" size={64} color="#fff" />
@@ -76,19 +72,20 @@ export default function LoginVisitor() {
                         <TextInput 
                         style={Styles.inputText}
                         placeholder="Usuário"
-                        //value={IdVisitor}   
-                        //onChange={e => setIdVisitor(e.target.value)}
-                         />
+                        value={IdVisitor}   
+                        onChange={e => setIdVisitor(e.target.value)}/>
                     </View>
                     <TouchableOpacity 
                     style={Styles.button} 
-                    onPress={Login}>
+                    onPress={handleLogin}>
                         <Text style={Styles.buttonText}>
                             Entrar
                         </Text>
                     </TouchableOpacity>
                 </View>
+                </ScrollView>
             </View>
+            
         </DismissKeyboard>
     );
 }

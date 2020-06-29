@@ -5,7 +5,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity} from 'react-native';
 
-//import api from '../../services/api';
 
 export default function Login() {
     
