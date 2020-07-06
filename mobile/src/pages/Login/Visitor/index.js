@@ -5,32 +5,23 @@ import logoImg from '../../../assets/logo.png';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation  } from '@react-navigation/native';
 import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
-
+import AsyncStorange from '@react-native-community/async-storage';
 import api from '../../../services/api';
 
 export default function LoginVisitor() {
-    const DismissKeyboard = ({ children }) => (
-        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            {children}
-        </TouchableWithoutFeedback>
-    );
+    
     const [IdVisitor, setIdVisitor] = useState('');
 
     const navigation = useNavigation();
 
-    function Login() {
-        navigation.navigate('ScreenVisitor');
-    }
 
-   async function handleLogin(){
+   async function Login(){
 
         try {
             
             const response = await api.post('sessionsVisit', {IdVisitor});
-            alert("aqui");
-            //localStorage.setItem('IdVisitor', IdVisitor);
-            
-            //return navigation.navigate('ScreenVisitor');
+            await AsyncStorange.setItem('IdVisitor', IdVisitor);
+            navigation.navigate('ScreenVisitor');
 
         } catch (err) {
             alert('Falha no login, tente novamente.');
@@ -45,7 +36,6 @@ export default function LoginVisitor() {
     
     
     return(
-        <DismissKeyboard>
             <View style={Styles.container}>
                 <LinearGradient 
                 colors={['transparent','#0163b6']} 
@@ -73,11 +63,11 @@ export default function LoginVisitor() {
                         style={Styles.inputText}
                         placeholder="Usuário"
                         value={IdVisitor}   
-                        onChange={e => setIdVisitor(e.target.value)}/>
+                        onChangeText={e => setIdVisitor(e)}/>
                     </View>
                     <TouchableOpacity 
                     style={Styles.button} 
-                    onPress={handleLogin}>
+                    onPress={Login}>
                         <Text style={Styles.buttonText}>
                             Entrar
                         </Text>
@@ -86,6 +76,5 @@ export default function LoginVisitor() {
                 </ScrollView>
             </View>
             
-        </DismissKeyboard>
     );
 }

@@ -8,13 +8,9 @@ import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
 
 export default function LoginPatient() {
-    
-    const DismissKeyboard = ({ children }) => (
-        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-          {children}
-        </TouchableWithoutFeedback>
-      );
-
+    const [User,  setUser] = useState('');
+    const [Id,  setId] = useState('');
+    const [Password,  setPassword] = useState('');
     const [isSelected, setSelection] = useState(false);
     const navigation = useNavigation();
 
@@ -30,14 +26,25 @@ export default function LoginPatient() {
         navigation.navigate('RecUser');
     }
 
-    function logIn() {
-        navigation.navigate('Drawer', {
-            screen: 'Home'
-        });
+    async function logIn(){
+        //alert(User + Id + Password)
+
+        // try {
+            
+        //     const response = await api.post('sessionsPatient', {Id});
+        //     await AsyncStorange.setItem('Id', Id);
+        //     navigation.navigate('Drawer', {
+        //         screen: 'Home'
+        //     });
+
+        // } catch (err) {
+        //     alert('Falha no login, tente novamente.');
+        // }
+
     }
 
     return(
-        <DismissKeyboard>
+
             <View style={Styles.container}>
                 <LinearGradient 
                 colors={['transparent','#0163b6']} 
@@ -63,13 +70,17 @@ export default function LoginPatient() {
                             <Feather style={Styles.inputIcon} name="user" size={32} color="#fff" />
                                 <TextInput 
                                 style={Styles.inputText}
-                                placeholder="Usuário" />
+                                placeholder="Usuário" 
+                                value={User}   
+                                onChangeText={e => setUser(e)}/>
                         </View>
                         <View style={Styles.input}>
                             <Feather style={Styles.inputIcon} name="info" size={32} color="#fff" />
                                 <TextInput 
                                 style={Styles.inputText}
-                                placeholder="Código" />
+                                placeholder="Código" 
+                                value={Id}   
+                                onChangeText={e => setId(e)}/>
                         </View>
                         <View style={Styles.input}>
                             <Feather style={Styles.inputIcon} name="lock" size={32} color="#fff" />
@@ -77,6 +88,8 @@ export default function LoginPatient() {
                                 style={Styles.inputText}
                                 placeholder="Senha" 
                                 secureTextEntry={true}
+                                value={Password}   
+                                onChangeText={e => setPassword(e)}
                                 />
                         </View>
                         <View style={Styles.row}>
@@ -111,6 +124,6 @@ export default function LoginPatient() {
                     </View>
                 </ScrollView>
             </View>
-        </DismissKeyboard>                    
+                         
     );
 }

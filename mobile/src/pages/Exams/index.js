@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Styles from './styles';
 import logoImg from '../../assets/logo.png';
 import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, Image, ScrollView, FlatList } from 'react-native';
+import api from '../../services/api';
+ 
 
 
 
@@ -14,6 +16,15 @@ export default function Exams() {
     function menu() {
       navigation.toggleDrawer();
     }
+
+   // async function loadExams(){
+    //    const response = await api
+
+    //}
+
+    //useEffect(() => {
+     //   loadExams();
+    //}, []);
 
     return (
         <View style={Styles.container}>
