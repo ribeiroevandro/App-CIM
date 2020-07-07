@@ -8,6 +8,7 @@ module.exports = {
 
     return Response.json(patient);
   },
+  
   //cria o paciente
   async create(Request, Response){
     const { name, user, password, pregnance, abortion, linkVideo, birthType, dateDUM, dataDPP, } = Request.body;

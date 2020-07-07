@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import CheckBox from '@react-native-community/checkbox';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
-import AsyncStorange from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 import api from '../../../services/api';
 
 export default function LoginPatient() {
@@ -31,9 +31,9 @@ export default function LoginPatient() {
     async function logIn(){
         try {
             const response = await api.post('sessionsPatient', {User, Password});
-            await AsyncStorange.setItem('user', User);
-            await AsyncStorange.setItem('password', Password);
-            
+            await AsyncStorage.setItem('user_id', response.data.id);
+            await AsyncStorage.setItem('name', response.data.name);
+
             navigation.navigate('Drawer', {
                 screen: 'Home'
             });

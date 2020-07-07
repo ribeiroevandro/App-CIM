@@ -12,7 +12,7 @@ const sessionPatientController = require('./controllers/sessionPatientController
 const routes = express.Router();
 
 //Metodo GET = Listar paciente, exame e prenatel expecifico
-routes.get('/profile', profileController.index);
+routes.get('/profile/:user_id', profileController.index);
 routes.get('/listExams', listExamsController.index);
 routes.get('/listPrenatal', listPrenatalController.index);
 

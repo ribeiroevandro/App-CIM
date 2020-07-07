@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Styles from './styles';
 import logoImg from '../../assets/logo.png';
 import whats from '../../assets/whatsapp.png'
@@ -7,25 +7,31 @@ import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, Image, ScrollView, Clipboard, Alert, Linking } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+import AsyncStorage from '@react-native-community/async-storage';
 import * as MailComposer from 'expo-mail-composer';
+import api from '../../services/api';
 
 export default function Dash() {
 
+    const [patient, setPatient] = useState([]); 
     const navigation = useNavigation();
-    const [isSelected, setSelection] = useState(false);
+    
+    async function loadData() {
+        const userId = await AsyncStorage.getItem('user_id');
+        const response = await api.get(`/profile/${userId}`)
+        setPatient(response.data);
+    }
+    
     const message = 'Teste teste';
     const text = '${message}';
-
-    const idVisitor = 'asasasasas';
-
+    
     function menu() {
-      navigation.toggleDrawer();
+        navigation.toggleDrawer();
     }
-
+    
     async function copyIdVisitor() {
-        Clipboard.setString(idVisitor);
-        Alert.alert('Sucesso','ID do visitante copiado!');
+        Clipboard.setString(patient.userIdVisitor);
+        Alert.alert('Sucesso', `ID ${patient.userIdVisitor} do visitante copiado!`);
       };
 
     function sendMail () {
@@ -43,6 +49,10 @@ export default function Dash() {
     function sendWhatsMarcelo () {
         Linking.openURL('whatsapp://send?phone=5544999617149&text=' + message);
     }
+
+    useEffect(() =>{
+        loadData();
+    }, []);
 
     return (
         <View style={Styles.container}>
@@ -77,7 +87,7 @@ export default function Dash() {
                             </Text>
                             <View style={{backgroundColor: '#fff', borderRadius: 15, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                                 <Text style={Styles.patientVisitorValue}>
-                                    asasasasas
+                                    {patient.userIdVisitor}
                                 </Text>
                                 <TouchableOpacity 
                                 style={{backgroundColor: '#0163b6', borderRadius: 15, padding: 8}}
@@ -94,47 +104,36 @@ export default function Dash() {
                                 Nome
                             </Text>
                             <Text style={Styles.patientNameValue}>
-                                Miriam Crisitna B. Rodrigues
+                                {patient.name}
                             </Text>
                         </View>
                         <View style={[Styles.row, {justifyContent: 'space-between', marginTop: 10, alignItems: 'center',}]}>
                             <View style={Styles.row}>
-                                <Text>0</Text>
+                            <Text>{patient.pregnance}</Text>
                                 <Text style={{fontWeight: 'bold', marginLeft: 5}}>G</Text>
                             </View>
                             <View style={Styles.row}>
-                                <Text>0</Text>
+                                <Text>{patient.abortion}</Text>
                                 <Text style={{fontWeight: 'bold', marginLeft: 5}}>P</Text>
                             </View>
                             <View style={[Styles.row, {alignItems: 'center'}]}>
-                                <Text style={{fontWeight: 'bold'}}>(Cesária</Text>
-                                <CheckBox 
-                                    disabled={false}
-                                    value={isSelected}
-                                    onValueChange={() => isSelected ? setSelection(false) : setSelection(true)} 
-                                    style={Styles.checkbox} />
-                                <Text style={{fontWeight: 'bold'}}>Normal</Text>
-                                <CheckBox 
-                                    disabled={false}
-                                    value={isSelected}
-                                    onValueChange={() => isSelected ? setSelection(false) : setSelection(true)} 
-                                    style={Styles.checkbox} />
-                                <Text style={{fontWeight: 'bold'}}>)</Text>
+                                <Text style={{fontWeight: 'bold'}}>({patient.birthType})</Text>
+                                
                             </View>
                             <View style={Styles.row}>
                                 <Text>0</Text>
-                                <Text style={{fontWeight: 'bold', marginLeft: 5}}>P</Text>
+                                <Text style={{fontWeight: 'bold', marginLeft: 5}}>A</Text>
                             </View>
                         </View>
                         <View style={[Styles.row, {justifyContent: 'space-between', marginTop: 10}]}>
                             <Text style={{fontWeight: 'bold'}}>DUM</Text>
-                            <Text>25/06/2020</Text>
+                            <Text>{patient.dateDUM}</Text>
                             <Text style={{fontWeight: 'bold'}}>DPP</Text>
-                            <Text>25/12/2020</Text>
+                            <Text>{patient.dataDPP}</Text>
                         </View>
                         <View>
                             <Text style={{fontWeight: 'bold', marginTop: 10}}>Observação</Text>
-                            <Text>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Text>
+                            <Text></Text>
                         </View>
                     </View>                    
                 </View>
