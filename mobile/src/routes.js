@@ -3,7 +3,7 @@ import Dash from './pages/Dash';
 import Login from './pages/Login';
 import Exams from './pages/Exams';
 import PreNatal from './pages/PreNatal';
-import Video from './pages/Video';
+import Galeria from './pages/Galeria';
 import { Feather } from '@expo/vector-icons';
 import {  } from '@expo/vector-icons/'
 import { CustomDrawerContent } from './drawer';
@@ -57,8 +57,8 @@ export function Drawer() {
             />
                         
             <AppDrawer.Screen 
-            name="Vídeo" 
-            component={Video} 
+            name="Galeria" 
+            component={Galeria} 
             options={{ 
                 drawerIcon: () => <Feather name="youtube" size={30} color="#0163b6" /> 
                 }}

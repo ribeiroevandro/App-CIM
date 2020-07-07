@@ -3,10 +3,10 @@ const connection = require('../database/connection');
 
 module.exports = {
     async create(request, response){
-        const  { User }  = request.body;
+        const  { User, Password }  = request.body;
 
         const patient = await connection('patient')
-        .where('user', User )
+        .where({'user': User, 'password': Password})
         .select('*')
         .first();
         

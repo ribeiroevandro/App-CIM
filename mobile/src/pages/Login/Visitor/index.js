@@ -18,7 +18,6 @@ export default function LoginVisitor() {
    async function Login(){
 
         try {
-            
             const response = await api.post('sessionsVisit', {IdVisitor});
             await AsyncStorange.setItem('IdVisitor', IdVisitor);
             navigation.navigate('ScreenVisitor');

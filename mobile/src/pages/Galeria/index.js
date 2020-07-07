@@ -1,14 +1,12 @@
 import React from 'react';
 import Styles from './styles';
 import logoImg from '../../assets/logo.png';
-import whats from '../../assets/whatsapp.png'
-import email from '../../assets/gmail.png'
 import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 
-export default function Video() {
+export default function Galeria() {
 
     const navigation = useNavigation();
 
@@ -39,10 +37,10 @@ export default function Video() {
             </View>
             <View style={Styles.content}>
                 <Text style={Styles.header}>
-                    Vídeos e Fotos
+                    Galeria
                 </Text>
                 <View style={Styles.patientContainer}>
-                    <FlatList />
+                    
                 </View>                    
             </View>
         </View>

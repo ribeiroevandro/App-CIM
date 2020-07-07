@@ -10,7 +10,7 @@ module.exports = {
   },
   //cria o doutor
   async create(Request, Response){
-    const { name, email } = Request.body;
+    const { name, email, password } = Request.body;
     const clinic_id = Request.headers.authorization;
 
     const id = crypto.randomBytes(4).toString('HEX');
@@ -19,10 +19,11 @@ module.exports = {
         id,
         name,
         email,
+        password,
         clinic_id,
     })
 
-    return Response.json({ id, name, email, clinic_id })
+    return Response.json({ id, name, email, password, clinic_id })
   },
   //deleta o doutor
   async delete(Request, Response){

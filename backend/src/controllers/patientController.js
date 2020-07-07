@@ -10,7 +10,7 @@ module.exports = {
   },
   //cria o paciente
   async create(Request, Response){
-    const { name, user, pregnance, abortion, linkVideo, birthType, dateDUM, dataDPP, } = Request.body;
+    const { name, user, password, pregnance, abortion, linkVideo, birthType, dateDUM, dataDPP, } = Request.body;
     const doctor_id = Request.headers.authorization;
 
     const id = crypto.randomBytes(4).toString('HEX');
@@ -22,6 +22,7 @@ module.exports = {
         linkVideo,
         name,
         user,
+        password,
         pregnance,
         abortion,
         birthType,

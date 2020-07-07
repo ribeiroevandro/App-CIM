@@ -6,11 +6,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import CheckBox from '@react-native-community/checkbox';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
+import AsyncStorange from '@react-native-community/async-storage';
+import api from '../../../services/api';
 
 export default function LoginPatient() {
     const [User,  setUser] = useState('');
-    const [Id,  setId] = useState('');
     const [Password,  setPassword] = useState('');
+
     const [isSelected, setSelection] = useState(false);
     const navigation = useNavigation();
 
@@ -27,20 +29,18 @@ export default function LoginPatient() {
     }
 
     async function logIn(){
-        //alert(User + Id + Password)
-
-        // try {
+        try {
+            const response = await api.post('sessionsPatient', {User, Password});
+            await AsyncStorange.setItem('user', User);
+            await AsyncStorange.setItem('password', Password);
             
-        //     const response = await api.post('sessionsPatient', {Id});
-        //     await AsyncStorange.setItem('Id', Id);
-        //     navigation.navigate('Drawer', {
-        //         screen: 'Home'
-        //     });
+            navigation.navigate('Drawer', {
+                screen: 'Home'
+            });
 
-        // } catch (err) {
-        //     alert('Falha no login, tente novamente.');
-        // }
-
+        } catch (err) {
+            alert('Falha no login, tente novamente.');
+        }
     }
 
     return(
@@ -75,14 +75,6 @@ export default function LoginPatient() {
                                 onChangeText={e => setUser(e)}/>
                         </View>
                         <View style={Styles.input}>
-                            <Feather style={Styles.inputIcon} name="info" size={32} color="#fff" />
-                                <TextInput 
-                                style={Styles.inputText}
-                                placeholder="Código" 
-                                value={Id}   
-                                onChangeText={e => setId(e)}/>
-                        </View>
-                        <View style={Styles.input}>
                             <Feather style={Styles.inputIcon} name="lock" size={32} color="#fff" />
                                 <TextInput 
                                 style={Styles.inputText}
@@ -92,7 +84,7 @@ export default function LoginPatient() {
                                 onChangeText={e => setPassword(e)}
                                 />
                         </View>
-                        <View style={Styles.row}>
+                        {/* <View style={Styles.row}>
                             <View style={Styles.checkboxCol}>
                                 <CheckBox 
                                     disabled={false}
@@ -113,7 +105,7 @@ export default function LoginPatient() {
                                     </Text>
                                 </TouchableOpacity>
                             </View>
-                        </View>
+                        </View> */}
                         <View style={Styles.buttonContainer}>
                             <TouchableOpacity style={Styles.button} onPress={logIn}>
                                 <Text style={Styles.buttonText}>

@@ -10,16 +10,17 @@ module.exports = {
   },
   //cria a clinica
   async create(Request, Response){
-    const { user } = Request.body;
+    const { user, password } = Request.body;
 
     const id = crypto.randomBytes(4).toString('HEX');
 
     await connection('clinic').insert({
         id,
         user,
+        password
     })
 
-    return Response.json({ id, user })
+    return Response.json({ id, user, password })
   },
   //deleta a clinica
   async delete(Request, Response){
