@@ -3,6 +3,7 @@ exports.up = function(knex) {
     table.string('id').primary();
     table.string('name').notNullable();
     table.string('email').notNullable();
+    table.string('password').notNullable();
     table.string('clinic_id').notNullable();
     table.foreign('clinic_id').references('id').inTable('clinic');
   });
