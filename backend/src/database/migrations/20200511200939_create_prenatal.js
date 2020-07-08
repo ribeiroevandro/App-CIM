@@ -10,7 +10,6 @@ exports.up = function(knex) {
       table.string('apres').nullable();
       table.string('edema').nullable();
       table.string('mf').nullable();
-      table.string('observacao').nullable();
       
       table.string('patient_id').notNullable();
       table.foreign('patient_id').references('id').inTable('patient');
