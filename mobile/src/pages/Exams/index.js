@@ -18,7 +18,9 @@ export default function Exams() {
     }
 
    // async function loadExams(){
-    //    const response = await api
+    //    const userId = await AsyncStorage.getItem('user_id');
+        // const response = await api.get(`/listPrenatal/${userId}`)
+        // setPatient(response.data);
 
     //}
 

@@ -1,5 +1,7 @@
 const crypto = require('crypto');
 const connection = require('../database/connection');
+const { update } = require('../database/connection');
+const { put } = require('../routes');
 
 module.exports = {
   //lista todos os doutores
@@ -25,6 +27,23 @@ module.exports = {
 
     return Response.json({ id, name, email, password, clinic_id })
   },
+  //Atualiza
+  async update(Request, Response){
+    const { id } = Request.params;
+    const clinic_id = Request.headers.authorization;
+    const { name, email, password } = Request.body;
+
+    await connection('doctor').where('id', id).update({
+      name,
+      email,
+      password,
+      clinic_id,
+  })
+
+    return Response.json({ id, name, email, password, clinic_id })
+
+  },
+
   //deleta o doutor
   async delete(Request, Response){
     const { id } = Request.params;

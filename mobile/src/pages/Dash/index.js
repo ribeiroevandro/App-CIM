@@ -133,7 +133,7 @@ export default function Dash() {
                         </View>
                         <View>
                             <Text style={{fontWeight: 'bold', marginTop: 10}}>Observação</Text>
-                            <Text></Text>
+                            <Text>{patient.observacao}</Text>
                         </View>
                     </View>                    
                 </View>

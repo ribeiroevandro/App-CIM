@@ -37,6 +37,13 @@ routes.delete('/patient/:id', patientController.delete);
 routes.delete('/prenatal/:id', prenatalController.delete);
 routes.delete('/exams/:id', examsController.delete);
 
+
+//Update
+routes.put('/doctor/:id', doctorController.update);
+routes.put('/exams/:id', examsController.update);
+routes.put('/prenatal/:id', prenatalController.update);
+routes.put('/patient/:id', patientController.update);
+
 //Login Metodo POST em SESSION
 routes.post('/sessionsVisit', sessionVisitController.create);
 routes.post('/sessionsPatient', sessionPatientController.create);

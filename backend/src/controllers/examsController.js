@@ -1,4 +1,5 @@
 const connection = require('../database/connection');
+const { update } = require('../database/connection');
 
 module.exports = {
   //lista o exams
@@ -9,18 +10,70 @@ module.exports = {
   },
   //cria o exams
   async create(Request, Response){
-    const { nameEx, resultEx, dateEx, patient_id} = Request.body;
+    const { aboRh, dateAboRh, glicemia, dateGlicemia, hbHt, dateHbHt, vdrl, dateVdrl, hiv, dateHiv, hepatiteB, dateHepatiteB, hepatiteC, dateHepatiteC, toxoplasmose, dateToxoplasmose, rubeola, dateRubeola, outro, dateOutro, patient_id} = Request.body;
     const doctor_id = Request.headers.authorization;
 
     const [ id ] = await connection('exams').insert({
-      nameEx, 
-      resultEx, 
-      dateEx, 
+      aboRh, 
+      dateAboRh, 
+      glicemia, 
+      dateGlicemia, 
+      hbHt, 
+      dateHbHt, 
+      vdrl, 
+      dateVdrl, 
+      hiv, 
+      dateHiv, 
+      hepatiteB, 
+      dateHepatiteB, 
+      hepatiteC, 
+      dateHepatiteC, 
+      toxoplasmose, 
+      dateToxoplasmose, 
+      rubeola, 
+      dateRubeola, 
+      outro, 
+      dateOutro, 
       patient_id,
       doctor_id,
     })
 
-    return Response.json({ id, dateEx, nameEx, resultEx, patient_id, doctor_id });
+    return Response.json({ id, aboRh, dateAboRh, glicemia, dateGlicemia, hbHt, dateHbHt, vdrl, dateVdrl, hiv, dateHiv, hepatiteB, dateHepatiteB, hepatiteC, dateHepatiteC, toxoplasmose, dateToxoplasmose, rubeola, dateRubeola, outro, dateOutro, patient_id, doctor_id });
+  },
+  //Atualiza o exams
+  async update(Request, Response){
+    const { id } = Request.params;
+    const { aboRh, dateAboRh, glicemia, dateGlicemia, hbHt, dateHbHt, vdrl, dateVdrl, hiv, dateHiv, hepatiteB, dateHepatiteB, hepatiteC, dateHepatiteC, toxoplasmose, dateToxoplasmose, rubeola, dateRubeola, outro, dateOutro, patient_id} = Request.body;
+    const doctor_id = Request.headers.authorization;
+
+
+      await connection('exams').where('id', id).update({
+      aboRh, 
+      dateAboRh, 
+      glicemia, 
+      dateGlicemia, 
+      hbHt, 
+      dateHbHt, 
+      vdrl, 
+      dateVdrl, 
+      hiv, 
+      dateHiv, 
+      hepatiteB, 
+      dateHepatiteB, 
+      hepatiteC, 
+      dateHepatiteC, 
+      toxoplasmose, 
+      dateToxoplasmose, 
+      rubeola, 
+      dateRubeola, 
+      outro, 
+      dateOutro, 
+      patient_id,
+      doctor_id,
+    })
+
+    return Response.json({ id, aboRh, dateAboRh, glicemia, dateGlicemia, hbHt, dateHbHt, vdrl, dateVdrl, hiv, dateHiv, hepatiteB, dateHepatiteB, hepatiteC, dateHepatiteC, toxoplasmose, dateToxoplasmose, rubeola, dateRubeola, outro, dateOutro, patient_id, doctor_id });
+
   },
    //deleta o exams
    async delete(Request, Response){

@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 const connection = require('../database/connection');
+const { update } = require('../database/connection');
 
 module.exports = {
   //lista todos os prenatal
@@ -10,7 +11,7 @@ module.exports = {
   },
   //cria o prenatal
   async create(Request, Response){
-    const { dateP, ig, au, pa, peso, bcf, apres, edema, mf, observacao, patient_id } = Request.body;
+    const { dateP, ig, au, pa, peso, bcf, apres, edema, mf, patient_id } = Request.body;
     const doctor_id = Request.headers.authorization;
     const [ id ] = await connection('prenatal').insert({
         dateP,
@@ -22,13 +23,35 @@ module.exports = {
         apres,
         edema,
         mf,
-        observacao,
         patient_id,
         doctor_id
     })
     
-    return Response.json({ id, dateP, ig, au, pa, peso, bcf, apres, edema, mf, observacao, patient_id, doctor_id });
+    return Response.json({ id, dateP, ig, au, pa, peso, bcf, apres, edema, mf, patient_id, doctor_id });
   },
+  //Atualiza
+  async update(Request, Response){
+    const { id } = Request.params;
+    const { dateP, ig, au, pa, peso, bcf, apres, edema, mf, patient_id } = Request.body;
+    const doctor_id = Request.headers.authorization;
+
+    await connection('prenatal').where('id', id).update({
+      dateP,
+      ig,
+      au,
+      pa,
+      peso,
+      bcf,
+      apres,
+      edema,
+      mf,
+      patient_id,
+      doctor_id
+  })
+  
+  return Response.json({ id, dateP, ig, au, pa, peso, bcf, apres, edema, mf, patient_id, doctor_id });
+  },
+
   //deleta o prenatal
   async delete(Request, Response){
     const { id } = Request.params;
