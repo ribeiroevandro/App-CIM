@@ -1,8 +1,8 @@
 exports.up = function(knex) {
     return knex.schema.createTable('galery', function (table){
      table.increments('id');
-     table.string('linkVideo').nullable();
-     table.string('linkFoto').nullable();
+     table.string('link').notNullable();
+     table.string('type').notNullable();
      
      table.string('patient_id').notNullable();
      table.foreign('patient_id').references('id').inTable('patient');
