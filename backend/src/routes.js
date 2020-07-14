@@ -9,6 +9,8 @@ const listExamsController = require('./controllers/listExamsController');
 const listPrenatalController = require('./controllers/listPrenatalController');
 const sessionVisitController = require('./controllers/sessionVisitController');
 const sessionPatientController = require('./controllers/sessionPatientController');
+const sessionDoctorController = require('./controllers/sessionDoctorController');
+const sessionClinicController = require('./controllers/sessionClinicController');
 const routes = express.Router();
 
 //Metodo GET = Listar paciente, exame e prenatel expecifico
@@ -47,7 +49,7 @@ routes.put('/patient/:id', patientController.update);
 //Login Metodo POST em SESSION
 routes.post('/sessionsVisit', sessionVisitController.create);
 routes.post('/sessionsPatient', sessionPatientController.create);
-//routes.post('/sessionsDoctor', sessionVisitController.create);
-//routes.post('/sessionsClinic', sessionVisitController.create);
+routes.post('/sessionsDoctor', sessionDoctorController.create);
+routes.post('/sessionsClinic', sessionClinicController.create);
 
 module.exports = routes;
