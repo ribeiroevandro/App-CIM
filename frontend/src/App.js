@@ -1,8 +1,11 @@
 import React from 'react';
+import Routes from './routes'
+
+import '../src/pages/global.css'
 
 function App() {
   return (
-      <h1>Hello Wolrd</h1>
+      <Routes />
     );
 }
 export default App;

@@ -1,0 +1,40 @@
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-dash{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: auto;
+    border-radius: 25px;
+    margin: 25px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.formDoctor {
+    /* width: 85%; */
+    max-width: 384px;
+}
+
+.formDoctor label {
+    font-weight: 700;
+}
+
+.formDoctor .input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.backForm {
+    background-color: #54affd !important;
+    width:85%;
+    max-width: 384px;
+}

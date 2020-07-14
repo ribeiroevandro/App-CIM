@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 400 14px 'Open Sans', sans-serif;
+    background-color: #0163b6;
+    background-image: linear-gradient(to bottom,#54affd, #0163b6);
+    -webkit-font-smoothing: antialiased;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-attachment: fixed;
+}
+
+h4, h5, h6 {
+    font: 600 'Open Sans', sans-serif;
+    color: black;
+}
+
+input, button, textarea {
+    font: 400 18px 'Open Sans', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+.logo {
+    display: block;
+    max-width: 299px;
+    max-height: 279px;
+    width: auto;
+    height: auto;
+}
+
+.button {
+    font: 600 18px 'Open Sans', sans-serif;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    height: 60px;
+    transition: all 0.2s;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+    line-height: 60px;
+    border: 0;
+}
+
+.button:hover{
+    filter: opacity(80%);
+}
+
+.input {
+    height: 60px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px black solid;
+    padding-left: 20px;
+    margin-top: 20px;
+}

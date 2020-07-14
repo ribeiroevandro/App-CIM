@@ -1,0 +1,47 @@
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-dash{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: auto;
+    border-radius: 25px;
+    margin: 25px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.formPreNatal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 460px;
+}
+
+.formRowPreNatal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formRowPreNatal label {
+    width: 30%;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.backForm {
+    background-color: #54affd !important;
+    width:85%;
+    max-width: 384px;
+}

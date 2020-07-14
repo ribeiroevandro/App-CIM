@@ -1,0 +1,92 @@
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-dash{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: auto;
+    border-radius: 25px;
+    margin: 25px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tools {
+    display: flex;
+    width: 55%;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tools .add {
+    width: 20%;
+    min-width: 110px;
+    margin-right: 20px;
+    background-color: #01b654;
+}
+
+
+
+.tools .bsearch {
+    width: 10%;
+    min-width: 55px;
+    border-radius: 0 10px 10px 0;
+    padding-top: 5px;
+}
+
+.tools .isearch {
+    border-radius: 10px 0 0 10px;
+}
+
+
+.tableDoctor {
+    width: 85%;
+    text-align: center;
+    border-spacing: 0;
+}
+
+.tableDoctor td {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px black solid;
+    border-right: 1px black solid;
+    font-size: 18px;
+}
+
+.tableDoctor td:last-child {
+    border-right: 0;
+}
+
+.action {
+    padding-right: 10px;
+}
+
+.tHeader {
+    background-color: #0163b6;
+    font-size: 24px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.tHeader th {
+    padding: 10px;
+}
+
+.tHeader th:first-child{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-right: 1px #fff solid;
+}
+
+.tHeader th:last-child{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-left: 1px #fff solid;
+}
+
+

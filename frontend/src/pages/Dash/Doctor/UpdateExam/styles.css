@@ -1,0 +1,74 @@
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-dash{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: auto;
+    border-radius: 25px;
+    margin: 25px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.inputsContainer {
+    display: flex;
+    width: 100%;
+}
+
+.formExam {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    max-width: 1087px;
+}
+
+.formExam .button {
+    max-width: 460px;
+}
+
+.examResult {
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+    width: 50%;
+}
+
+.examDate {
+    width: 50%;
+}
+
+.formRowExam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.formRowExam label {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 10px;
+    width: 30%;
+}
+
+.formRowExam input {
+    width: 70%;
+}
+
+.backForm {
+    background-color: #54affd !important;
+    width:85%;
+    max-width: 384px;
+}

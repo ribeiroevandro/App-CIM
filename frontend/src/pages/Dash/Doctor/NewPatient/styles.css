@@ -1,0 +1,69 @@
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-dash{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: auto;
+    border-radius: 25px;
+    margin: 25px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.formPatient {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main {
+    flex: 0.7;
+    margin-right: 25px;
+}
+
+.second {
+    flex: 0.3;
+}
+
+.formRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.formRowFirst {
+    flex: 0.5;
+}
+
+.formRowSecond:not(:last-child) {
+    margin-right: 25px;
+}
+
+.formPatient label {
+    font-weight: 700;
+}
+
+.formPatient .input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.backForm {
+    background-color: #54affd !important;
+    width:85%;
+    max-width: 384px;
+}
+
+.textarea {
+    resize: vertical;
+}
