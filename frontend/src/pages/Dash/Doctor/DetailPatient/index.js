@@ -180,7 +180,7 @@ export default function NewPatient() {
                             <td>NA</td>
                             <td>
                                 <Link to="/dashboard/doctor/prenatal/update" className="editMargin"><FiEdit size={32} color="#000" /></Link>
-                                <Link><FiTrash2 size={32} color="#000" /></Link>
+                                {/* <Link><FiTrash2 size={32} color="#000" /></Link> */}
                             </td>
                         </tr>
                     </table>

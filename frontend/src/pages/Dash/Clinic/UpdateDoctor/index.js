@@ -41,7 +41,7 @@ export default function UpdateDoctor(props) {
                     <input className="input" type="text" name="fCPass" id="fCPass" onChange={e => setCPass(e.target.value)}/>
                     <button className="button" type="submit">Editar</button>
                 </form>
-                <Link className="button backForm" to="/dashboard/clinic">
+                <Link to="/dashboard/clinic" className="button backForm">
                     Voltar
                 </Link>
             </section>

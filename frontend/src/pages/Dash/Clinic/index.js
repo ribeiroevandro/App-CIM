@@ -42,7 +42,7 @@ export default function DashClinic() {
                     </thead>
                     <tbody>
                         {doctors.map(doctor => (
-                            <tr>
+                            <tr key={doctor.id}>
                                 <td>
                                     {doctor.name}
                                 </td>
@@ -53,7 +53,7 @@ export default function DashClinic() {
                                     <Link to={`/dashboard/clinic/update/${doctor.id}`}  className="action">
                                         <FiEdit size={24} color="#000"/>
                                     </Link>
-                                    <Link>
+                                    <Link to="/">
                                         <FiTrash2 size={24} color="#b60109"/>
                                     </Link>
                                 </td>
