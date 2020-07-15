@@ -1,6 +1,8 @@
 const crypto = require('crypto');
 const connection = require('../database/connection');
 const { update } = require('../database/connection');
+const { response } = require('express');
+
 
 module.exports = {
   //lista todos os pacientes
@@ -17,6 +19,7 @@ module.exports = {
 
     const id = crypto.randomBytes(4).toString('HEX');
     const userIdVisitor = crypto.randomBytes(4).toString('HEX');
+
     
     await connection('patient').insert({
         id,
@@ -32,8 +35,59 @@ module.exports = {
         doctor_id,
         observacao,
     })
+    // //const patient_id = Response.json({id});
+    // await connection('exams').insert({
+    //   aboRh: '-', 
+    //   dateAboRh: '-', 
+    //   glicemia: '-', 
+    //   dateGlicemia: '-', 
+    //   hbHt: '-', 
+    //   dateHbHt: '-', 
+    //   vdrl: '-', 
+    //   dateVdrl: '-', 
+    //   hiv: '-', 
+    //   dateHiv: '-', 
+    //   hepatiteB: '-', 
+    //   dateHepatiteB: '-', 
+    //   hepatiteC: '-', 
+    //   dateHepatiteC: '-', 
+    //   toxoplasmose: '-', 
+    //   dateToxoplasmose: '-', 
+    //   rubeola: '-', 
+    //   dateRubeola: '-', 
+    //   outro: '-', 
+    //   dateOutro: '-', 
+    //   patient_id: id,
+    //   doctor_id: doctor_id,
+    // })
 
+    // await connection('exams').insert({
+    //   aboRh: '-', 
+    //   dateAboRh: '-', 
+    //   glicemia: '-', 
+    //   dateGlicemia: '-', 
+    //   hbHt: '-', 
+    //   dateHbHt: '-', 
+    //   vdrl: '-', 
+    //   dateVdrl: '-', 
+    //   hiv: '-', 
+    //   dateHiv: '-', 
+    //   hepatiteB: '-', 
+    //   dateHepatiteB: '-', 
+    //   hepatiteC: '-', 
+    //   dateHepatiteC: '-', 
+    //   toxoplasmose: '-', 
+    //   dateToxoplasmose: '-', 
+    //   rubeola: '-', 
+    //   dateRubeola: '-', 
+    //   outro: '-', 
+    //   dateOutro: '-', 
+    //   patient_id: id,
+    //   doctor_id: doctor_id,
+    // })
+    
     return Response.json({ id, userIdVisitor, name, user, pregnance, abortion, birthType, dateDUM, dataDPP, observacao, doctor_id })
+    
   },
 
   //Atualiza
