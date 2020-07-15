@@ -61,7 +61,7 @@ export default StyleSheet.create({
     },
 
     rowDataVertHeader: {
-        flex: 0.3,
+        flex: 0.4,
         justifyContent: 'space-between',
         backgroundColor: '#0163b6',
         borderRadius: 20,
@@ -77,12 +77,25 @@ export default StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
     },
+ 
+    rowDataContainer: {
+        width: 150,
+    },
 
     rowDataHorHeader: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between',
     },
+
+    rowData: {
+        flex: 1,
+        flexDirection: 'row',
+    },
+   
+    flatList: {
+        flex: 1,
+    },
+
     
     textHorHeader: {
         flex: 1,
@@ -94,16 +107,7 @@ export default StyleSheet.create({
         borderRightWidth: 1,
     },
     
-    rowDataContainer: {
-        flex: 0.7,
-    },
-
-    rowData: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-
+    
     textData: {
         flex: 1,
         fontSize: 10,

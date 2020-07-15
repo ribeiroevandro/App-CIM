@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Styles from './styles';
 import logoImg from '../../assets/logo.png';
 import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, Image, ScrollView, FlatList } from 'react-native';
-
+import AsyncStorage from '@react-native-community/async-storage';
+import api from '../../services/api';
 
 
 export default function PreNatal() {
+    const [prenatal, setPrenatal] = useState([]);
     const navigation = useNavigation();
 
     function menu() {
       navigation.toggleDrawer();
     }
 
+    async function loadPrenatal(){
+        const userId = await AsyncStorage.getItem('user_id');
+        const response = await api.get(`/listPrenatal/${userId}`)
+        setPrenatal(response.data);
+        console.log(response.data);
+        }
+    
+        useEffect(() => {
+            loadPrenatal();
+        }, []);
+ 
     return (
         <View style={Styles.container}>
             <LinearGradient 
@@ -74,37 +87,37 @@ export default function PreNatal() {
                             
                         </View>
                             <FlatList 
-                            data={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]}
-                            keyExtractor={data => String(data)}
+                            data={prenatal}
+                            keyExtractor={prenatals => String(prenatals.id)}
                             style={Styles.rowData} 
-                            renderItem={() => (                      
+                            renderItem={({item: prenatals}) => (                      
                             <View style={Styles.rowDataContainer}>
                                 <Text style={Styles.rowDataContainerItem}>
-                                21/05/2019
+                                 {prenatals.dateP}
                                 </Text>
                                 <Text style={Styles.rowDataContainerItem}>
-                                    NA
+                                    {prenatals.ig}
                                 </Text>
                                 <Text style={Styles.rowDataContainerItem}>
-                                    NA
+                                    {prenatals.au}
                                 </Text>
                                 <Text style={Styles.rowDataContainerItem}>
-                                    NA
+                                    {prenatals.pa}
                                 </Text>
                                 <Text style={Styles.rowDataContainerItem}>
-                                    NA
+                                    {prenatals.peso}
                                 </Text>
                                 <Text style={Styles.rowDataContainerItem}>
-                                    NA
+                                    {prenatals.bcf}
                                 </Text>
                                 <Text style={Styles.rowDataContainerItem}>
-                                    NA
+                                    {prenatals.apres}
                                 </Text>
                                 <Text style={Styles.rowDataContainerItem}>
-                                    NA
+                                    {prenatals.edema}
                                 </Text>
                                 <Text style={Styles.rowDataContainerItem}>
-                                    NA
+                                    {prenatals.mf}
                                 </Text>
                                 
                             </View>

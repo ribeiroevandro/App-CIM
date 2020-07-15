@@ -30,10 +30,12 @@ export default function LoginPatient() {
 
     async function logIn(){
         try {
+            
             const response = await api.post('sessionsPatient', {User, Password});
+            console.log('aqui');
             await AsyncStorage.setItem('user_id', response.data.id);
             await AsyncStorage.setItem('name', response.data.name);
-
+            
             navigation.navigate('Drawer', {
                 screen: 'Home'
             });

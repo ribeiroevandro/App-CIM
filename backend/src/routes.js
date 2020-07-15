@@ -15,8 +15,8 @@ const routes = express.Router();
 
 //Metodo GET = Listar paciente, exame e prenatel expecifico
 routes.get('/profile/:user_id', profileController.index);
-routes.get('/listExams', listExamsController.index);
-routes.get('/listPrenatal', listPrenatalController.index);
+routes.get('/listExams/:user_id', listExamsController.index);
+routes.get('/listPrenatal/:user_id', listPrenatalController.index);
 
 //Metodo GET = Listar
 routes.get('/clinic', clinicController.index);
