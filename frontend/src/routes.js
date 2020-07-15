@@ -24,10 +24,10 @@ export default function Routes() {
                <Route path="/logindoctor" component={LoginDoctor} />
                <Route path="/dashboard/clinic" exact component={DashClinic} />
                <Route path="/dashboard/clinic/new"  component={NewDoctor} />
-               <Route path="/dashboard/clinic/update"  component={UpdateDoctor} />
+               <Route path="/dashboard/clinic/update/:id"  component={UpdateDoctor} />
                <Route path="/dashboard/doctor" exact component={DashDoctor} />
                <Route path="/dashboard/doctor/new" component={NewPatient} />
-               <Route path="/dashboard/doctor/update" component={UpdatePatient} />
+               <Route path="/dashboard/doctor/update/" component={UpdatePatient} />
                <Route path="/dashboard/doctor/detail" component={DetailPatient} />
                <Route path="/dashboard/doctor/exam/update" component={UpdateExam} />
                <Route path="/dashboard/doctor/prenatal/new" component={NewPreNatal} />

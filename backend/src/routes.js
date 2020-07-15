@@ -11,12 +11,14 @@ const sessionVisitController = require('./controllers/sessionVisitController');
 const sessionPatientController = require('./controllers/sessionPatientController');
 const sessionDoctorController = require('./controllers/sessionDoctorController');
 const sessionClinicController = require('./controllers/sessionClinicController');
+const listDoctor = require('./controllers/listDoctorController')
 const routes = express.Router();
 
 //Metodo GET = Listar paciente, exame e prenatel expecifico
 routes.get('/profile/:user_id', profileController.index);
 routes.get('/listExams', listExamsController.index);
 routes.get('/listPrenatal', listPrenatalController.index);
+routes.get('/listDoctor/:doctor_id', listDoctor.index);
 
 //Metodo GET = Listar
 routes.get('/clinic', clinicController.index);

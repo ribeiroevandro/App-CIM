@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiTrash2, FiEdit, FiPlus, FiEdit2 } from 'react-icons/fi';
+import { FiTrash2, FiEdit, FiPlus} from 'react-icons/fi';
 
 import Header from '../../../Header.js'
 

@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiEdit, FiTrash2, FiSearch } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import api from '../../../services/api';
+
 
 import Header from '../../Header.js'
 
 import './styles.css'
 
 export default function DashClinic() {
+    const clinicId = localStorage.getItem('clinicId');
+    
+    const [doctors, setDoctors] = useState([]);
+
+    useEffect(() => {
+        api.get('/doctor').then(response => {
+            setDoctors(response.data);
+        })
+    }, [clinicId]);
+
     return (
         <section className="body">
             <Header title="Clinic" />
@@ -21,43 +33,33 @@ export default function DashClinic() {
                 </section>
                 
                 <table className="tableDoctor">
-                    <tr className="tHeader">
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Ação</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            Miriam Rodrigues
-                        </td>
-                        <td>
-                            miriamhoptmail.com
-                        </td>
-                        <td>
-                            <Link to="/dashboard/clinic/update" className="action">
-                                <FiEdit size={24} color="#000"/>
-                            </Link>
-                            <Link>
-                                <FiTrash2 size={24} color="#b60109"/>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Miriam Rodrigues
-                        </td>
-                        <td>
-                            miriamhoptmail.com
-                        </td>
-                        <td>
-                            <Link to="/dashboard/clinic/update" className="action">
-                                <FiEdit size={24} color="#000"/>
-                            </Link>
-                            <Link>
-                                <FiTrash2 size={24} color="#b60109"/>
-                            </Link>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr className="tHeader">
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {doctors.map(doctor => (
+                            <tr>
+                                <td>
+                                    {doctor.name}
+                                </td>
+                                <td>
+                                    {doctor.email}
+                                </td>
+                                <td>
+                                    <Link to={`/dashboard/clinic/update/${doctor.id}`}  className="action">
+                                        <FiEdit size={24} color="#000"/>
+                                    </Link>
+                                    <Link>
+                                        <FiTrash2 size={24} color="#b60109"/>
+                                    </Link>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
                 </table>
             </section>
         </section>
