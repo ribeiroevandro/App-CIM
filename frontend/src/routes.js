@@ -13,26 +13,24 @@ import DetailPatient from './pages/Dash/Doctor/DetailPatient';
 import UpdateExam from './pages/Dash/Doctor/UpdateExam';
 import NewPreNatal from './pages/Dash/Doctor/NewPreNatal';
 import UpdatePreNatal from './pages/Dash/Doctor/UpdatePreNatal';
-import Galery from './pages/Dash/Doctor/Galery';
 
 export default function Routes() {
     return (
         <BrowserRouter>
             <Switch>
-               <Route path="/" exact  component={Login} />
-               <Route path="/loginclinic"  component={LoginClinic} />
-               <Route path="/logindoctor"  component={LoginDoctor} />
-               <Route path="/dashboard/clinic" component={DashClinic} />
-               <Route path="/dashboard/clinic/new" component={NewDoctor} />
-               <Route path="/dashboard/clinic/update/:id+"  component={UpdateDoctor} />
-               <Route path="/dashboard/doctor" component={DashDoctor} />
-               <Route path="/dashboard/doctor/new"  component={NewPatient} />
-               <Route path="/dashboard/doctor/update/"  component={UpdatePatient} />
-               <Route path="/dashboard/doctor/detail"  component={DetailPatient} />
-               <Route path="/dashboard/doctor/exam/update"  component={UpdateExam} />
-               <Route path="/dashboard/doctor/prenatal/new"  component={NewPreNatal} />
-               <Route path="/dashboard/doctor/prenatal/update"  component={UpdatePreNatal} />
-               <Route path="/dashboard/doctor/galery" component={Galery} />
+            <Route path="/" exact component={Login} />
+            <Route path="/loginclinic" component={LoginClinic} />
+            <Route path="/logindoctor" component={LoginDoctor} />
+            <Route path="/dashboard/clinic" exact component={DashClinic} />
+            <Route path="/dashboard/clinic/new"  component={NewDoctor} />
+            <Route path="/dashboard/clinic/update/:id"  component={UpdateDoctor} />
+            <Route path="/dashboard/doctor" exact component={DashDoctor} />
+            <Route path="/dashboard/doctor/new" component={NewPatient} />
+            <Route path="/dashboard/doctor/update/" component={UpdatePatient} />
+            <Route path="/dashboard/doctor/detail" component={DetailPatient} />
+            <Route path="/dashboard/doctor/exam/update" component={UpdateExam} />
+            <Route path="/dashboard/doctor/prenatal/new" component={NewPreNatal} />
+            <Route path="/dashboard/doctor/prenatal/update" component={UpdatePreNatal} />
             </Switch>
         </BrowserRouter>
     )
